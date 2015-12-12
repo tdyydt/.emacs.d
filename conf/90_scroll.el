@@ -1,4 +1,5 @@
-;;;;; Scroll
+;; Scroll
+;; スクロールのチューニング
 
 ;; スクロールを2行ずつに
 ;; 矢印キーなどによるスクロールが対象，マウススクロールは別
@@ -15,6 +16,7 @@
 (defun scroll-up-with-lines ()
    (interactive)
    (scroll-up 2))
+
 (global-set-key [wheel-up] 'scroll-down-with-lines)
 (global-set-key [wheel-down] 'scroll-up-with-lines)
 ;; (global-set-key [double-wheel-up] 'scroll-down-with-lines)

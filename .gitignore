@@ -1,6 +1,18 @@
+# bak
 auto-save-list/
 backups/
 undohist/
+
 ac-comphist.dat
 kkcrc
+bookmarks
+.emacs.desktop
 .recentf
+
+# elpa/
+# elisp/
+archive-contents
+
+eshell/*
+games/
+org-memo/*

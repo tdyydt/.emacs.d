@@ -1,4 +1,4 @@
-;;;;; Mode Line (p.88)
+;; Mode Line (p.88)
 
 ;; ファイルサイズ表示
 (size-indication-mode t)
@@ -9,14 +9,21 @@
 (setq display-time-string-forms
       ;; quote に注意
       ;; 最後のスペースは，調整のため。
-      '((format "%s %s/%s %s:%s "
-               dayname month day 24-hours minutes)))
+      ;; '((format "%s %s/%s %s:%s "
+      ;;          dayname month day 24-hours minutes)))
+      '((format "(%s:%s %s/%s %s) "
+                24-hours minutes
+                month day dayname
+               )))
 (display-time-mode t)
 
 ;; バッテリー残量表示
 ;; (display-battery-mode t)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 選択中の行数と文字数を表示 (p.89)
+;; 不要 2015/11/02
+
 ;; (defun count-lines-and-chars ()
 ;;   (if mark-active
 ;;       (format "%d lines, %d chars "
@@ -24,7 +31,6 @@
 ;;               (- (region-end) (region-beginning)))
 ;;     ""))
 
-;; 不要 2015/11/02
 ;; (defun count-marked-chars ()
 ;;   (if mark-active
 ;;       (format "%d chars "

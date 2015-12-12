@@ -10,6 +10,7 @@
 ;; init-loader
 (require 'init-loader)
 ;; Load configuration files in '/path/to/init-directory'.
-(init-loader-load "~/.emacs.d/inits")
+;(init-loader-load "~/.emacs.d/inits")
+(init-loader-load "~/.emacs.d/conf")
 ;; If you omit arguments, then `init-loader-directory' is used
 ;(init-loader-load) これを書くとエラーになるので
