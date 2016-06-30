@@ -13,6 +13,7 @@ bookmarks
 # elisp/
 # archive-contents
 .cask/*
+elpa_bak/*
 
 eshell/*
 games/

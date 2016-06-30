@@ -1,16 +1,4 @@
 ;; -*- mode: emacs-lisp -*-
-;; el-get も気になるが、とりあえず cask を試してみる
-;; REF: (el-get) http://tarao.hatenablog.com/entry/20150221/1424518030
-
-;; REF: http://cask.readthedocs.io/en/latest/guide/usage.html (official guide)
-;; % cask init
-;; % cask install (emacs コマンドを読んだ時の version を見てインストールがなされる。mac 標準の emacs が参照されないようにするか、EMACS="emacs24.1" とする)
-;; % cask update
-
-;; TODO:
-;; .cask を load-path に追加する
-;; コメントこれでいいのか？
-;; git から ELPA を消す
 
 (source gnu)
 (source melpa)
@@ -52,8 +40,8 @@
 (depends-on "company")
 ;; search / replace
 (depends-on "migemo")
-(depends-pn "visual-regexp")
-(depends-pn "visual-regexp-steroids")
+(depends-on "visual-regexp")
+(depends-on "visual-regexp-steroids")
 ;; SKK
 (depends-on "ddskk")
 ;; recentf
@@ -62,8 +50,8 @@
 ;; undo
 (depends-on "undo-tree")
 (depends-on "undohist")
-;(depends-on "redo+")
-;(depends-on "point-undo")
+(depends-on "redo+")
+(depends-on "point-undo")
 
 ;; wc
 (depends-on "wc-mode")

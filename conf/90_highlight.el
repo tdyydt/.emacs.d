@@ -10,8 +10,8 @@
   (custom-set-faces
  ;'(hl-line ((t (:underline t :background nil))))
  ;'(hl-line ((t (:background "color-236"))))
-   '(hl-line ((t (:background bg-color))))
-   '(col-highlight ((t (:background bg-color))))
+   `(hl-line ((t (:background ,bg-color))))
+   `(col-highlight ((t (:background ,bg-color))))
    ))
 
 ;(custom-set-faces '(hl-line ((t (:underline t)))))
