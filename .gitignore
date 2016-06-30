@@ -11,7 +11,8 @@ bookmarks
 
 # elpa/
 # elisp/
-archive-contents
+# archive-contents
+.cask/*
 
 eshell/*
 games/
