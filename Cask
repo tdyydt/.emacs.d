@@ -41,6 +41,10 @@
 (depends-on "hl-line+")
 (depends-on "col-highlight")
 
+;; improve mode-line
+(depends-on "smart-mode-line")
+(depends-on "smart-mode-line-powerline-theme")
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; major modes
 
