@@ -1,18 +1,20 @@
 ;;;; Highlight current line
-;; ir-black の region 選択の時の色に合わせた．
-;; "M-x customize-face RET region" により確認出来た
+;(require 'hl-line)
 (global-hl-line-mode t)
 
 ;; color 236 はあまり見えない。
 ;; gray20
 ;; REF: http://homepage1.nifty.com/blankspace/emacs/emacs_rgb.html
-(let ((bg-color "gray-15"))
+(let (;(bg-color "gray15")
+      (bg-color "gray20")
+      )
   (custom-set-faces
  ;'(hl-line ((t (:underline t :background nil))))
  ;'(hl-line ((t (:background "color-236"))))
    `(hl-line ((t (:background ,bg-color))))
    `(col-highlight ((t (:background ,bg-color))))
    ))
+
 
 ;(custom-set-faces '(hl-line ((t (:underline t)))))
 ;; (defface hl-line '((t (:background "gray20"))

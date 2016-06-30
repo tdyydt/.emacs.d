@@ -1,9 +1,11 @@
-;; Mode Line (p.88)
+;; Mode Line
 
 ;; ファイルサイズ表示
 (size-indication-mode t)
 ;; 列番号表示
 (column-number-mode t)
+;; バッテリー残量表示
+;; (display-battery-mode t)
 
 ;; 時計
 (setq display-time-string-forms
@@ -17,30 +19,8 @@
                )))
 (display-time-mode t)
 
-;; バッテリー残量表示
-;; (display-battery-mode t)
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; 選択中の行数と文字数を表示 (p.89)
-;; 不要 2015/11/02
-
-;; (defun count-lines-and-chars ()
-;;   (if mark-active
-;;       (format "%d lines, %d chars "
-;;               (count-lines (region-beginning) (region-end))
-;;               (- (region-end) (region-beginning)))
-;;     ""))
-
-;; (defun count-marked-chars ()
-;;   (if mark-active
-;;       (format "%d chars "
-;;               (- (region-end) (region-beginning)))
-;;     ""))
-;; (add-to-list 'default-mode-line-format
-;;              '(:eval (count-marked-chars)))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; smart-mode-line
+;; smart-mode-line & power-line
 ;; REF: http://emacs.stackexchange.com/questions/281/how-do-i-get-a-fancier-mode-line-that-uses-solid-colors-and-triangles
 
 ;; REF: http://blog.shibayu36.org/entry/2014/04/01/094543
@@ -52,27 +32,36 @@
 (require 'smart-mode-line)
 (require 'powerline)
 
-;; arrow, curve, ..
-(setq powerline-arrow-shape 'arrow)
-;(setq powerline-default-separator-dir '(right . left))
-(powerline-default-theme)
-;(powerline-center-theme)
-
-;; These two lines you really need.
+;; smart mode line => 無くていい？
 ;(setq sml/theme 'powerline)
 ;; TODO: これを呼ぶと warning が出るのを何とかする
-(sml/setup)
+;; これ (smart-mode-line) はなくていいかも
+;;(sml/setup)
 
-;; (set-face-attribute 'mode-line nil
-;;                     :foreground "Black"
-;;                     :background "DarkOrange"
-;;                     :box nil)
+
+;; いくつか変種があるとのこと
+;; REF: https://www.emacswiki.org/emacs/PowerLine
+
+;; TODO: これは違うバージョンについての記述のようだ！
+;; powerline
+;; powerline だけでも良いようである？
+;; arrow, curve, ..
+;; (setq powerline-arrow-shape 'box)
+;(setq powerline-default-separator-dir '(right . left))
+;; (powerline-default-theme)
+;(powerline-center-theme)
+
+
+;; set separator:
+;; nil, bar, curve, ...
+(setq powerline-default-separator 'curve)
+;; curve とかにするときに、綺麗にセパレータが表示されない
+;; REF: http://ytsk.hatenablog.com/entry/2015/09/23/021856
+;; (setq ns-use-srgb-colorspace nil)
+;; とすれば出来るけど、過激な方法とのこと, nil にするのが最も手っ取り早い
 
 ;; 色はコレを参考に
 ;; REF: http://blog.shibayu36.org/entry/2014/02/11/160945
-
-;; foreground (文字色) を変えても変わらないものもおおい
-
 ;; color name list
 ;; REF: http://raebear.net/comp/emacscolors.html
 
@@ -80,7 +69,7 @@
 (progn
   (set-face-attribute 'mode-line nil
                       :foreground "Brack"
-                      :background "DarkOrange"
+                      :background "violet"
                       :box nil)
   ;; major-mode, minor-mode のところ
   (set-face-attribute 'powerline-active1 nil
@@ -91,20 +80,21 @@
   (set-face-attribute 'powerline-active2 nil
                       :foreground "Brack"
                                         ;:background "chocolate"
-                      :background "violet"
+                      :background "DarkOrange"
                       :inherit 'mode-line))
 
 ;; for inactive windows:
-(progn
+(let ((bg-color "gray20")
+      (fg-color "White"))
   (set-face-attribute 'mode-line-inactive nil
-                      :foreground "Brack"
-                      :background "White"
+                      :foreground fg-color
+                      :background bg-color
                       :box nil)
   (set-face-attribute 'powerline-inactive1 nil
-                      :foreground "Brack"
-                      :background "White"
+                      :foreground fg-color
+                      :background bg-color
                       :inherit 'mode-line)
   (set-face-attribute 'powerline-inactive2 nil
-                      :foreground "Brack"
-                      :background "White"
+                      :foreground fg-color
+                      :background bg-color
                       :inherit 'mode-line))
