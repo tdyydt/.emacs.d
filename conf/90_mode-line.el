@@ -20,37 +20,54 @@
 (display-time-mode t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; major, minor mode 表示名を変更する
+;; REF: http://syohex.hatenablog.com/entry/20130131/1359646452
+
+(require 'cl)
+(defvar mode-line-cleaner-alist
+  '(;; For minor-mode, first char is 'space'
+    (undo-tree-mode . " UT")
+
+    ;; Major modes
+    ;;(python-mode . "py")
+    ;;(ruby-mode   . "rb")
+    ;;(emacs-lisp-mode . "el")
+    ;;(markdown-mode . "md")
+    ))
+
+(defun clean-mode-line ()
+  (interactive)
+  (loop for (mode . mode-str) in mode-line-cleaner-alist
+        do
+        (let ((old-mode-str (cdr (assq mode minor-mode-alist))))
+          (when old-mode-str
+            (setcar old-mode-str mode-str))
+          ;; major mode
+          (when (eq mode major-mode)
+            (setq mode-name mode-str)))))
+
+(add-hook 'after-change-major-mode-hook 'clean-mode-line)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; smart-mode-line & power-line
 ;; REF: http://emacs.stackexchange.com/questions/281/how-do-i-get-a-fancier-mode-line-that-uses-solid-colors-and-triangles
 
 ;; REF: http://blog.shibayu36.org/entry/2014/04/01/094543
 ;; REF: http://blog.shibayu36.org/entry/2014/02/02/192924
 
-;; TOOD: 設定方法が分からない
-;; 現状、色が見づらい。dark にマッチしない
+;; なくても良さげ
+;; (require 'smart-mode-line)
 
-(require 'smart-mode-line)
-(require 'powerline)
-
-;; smart mode line => 無くていい？
-;(setq sml/theme 'powerline)
-;; TODO: これを呼ぶと warning が出るのを何とかする
-;; これ (smart-mode-line) はなくていいかも
-;;(sml/setup)
-
-
+;; powerline には
 ;; いくつか変種があるとのこと
 ;; REF: https://www.emacswiki.org/emacs/PowerLine
 
-;; TODO: これは違うバージョンについての記述のようだ！
-;; powerline
-;; powerline だけでも良いようである？
-;; arrow, curve, ..
-;; (setq powerline-arrow-shape 'box)
-;(setq powerline-default-separator-dir '(right . left))
-;; (powerline-default-theme)
+;; setup powerline
+(require 'powerline)
+;; theme とは、モードラインの並び順ということ。
+;; powerline-themes に定義されている
+(powerline-default-theme)
 ;(powerline-center-theme)
-
 
 ;; set separator:
 ;; nil, bar, curve, ...
@@ -79,7 +96,7 @@
   ;; 時計とかのところ
   (set-face-attribute 'powerline-active2 nil
                       :foreground "Brack"
-                                        ;:background "chocolate"
+                      ;; :background "chocolate"
                       :background "DarkOrange"
                       :inherit 'mode-line))
 
