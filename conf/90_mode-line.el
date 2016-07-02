@@ -74,7 +74,7 @@
 ;; REF: http://ytsk.hatenablog.com/entry/2015/09/23/021856
 (setq powerline-default-separator 'curve)
 ;; ファイルのどの位置にいるかの、示すバーを表示するか
-(setq powerline-display-hud nil)
+;;(setq powerline-display-hud t)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

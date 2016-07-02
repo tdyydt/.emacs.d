@@ -1,4 +1,5 @@
 ;; racket config
+;; Geiser
 
 ;; racket install log:
 ;; % brew install racket
@@ -18,12 +19,20 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Geiser
 ;; Geiser is an Emacs environment to hack and have fun in Scheme.
+(require 'geiser)
+
 (setq geiser-racket-binary "racket")
 (setq geiser-active-implementations '(racket))
 ;(setq geiser-repl-read-only-prompt-p nil)
 
 ;; autodoc mode が煩いから、止める
 (setq geiser-mode-autodoc-p nil)
+
+;; 'C-.' で redo したいので、解除
+(defun geiser-mode-hooks ()
+  (define-key geiser-mode-map (kbd "C-.") nil))
+(add-hook 'geiser-mode-hook 'geiser-mode-hooks)
+
 
 ;; geiser-racket-init-file
 ;; に設定されている文字列ファイルが、racket 起動時に実行される
