@@ -45,7 +45,9 @@
   (let ((output
          (shell-command-to-string ;call-process-shell-command
           (format-time-string
-           "(cd ~/Documents/Code/ExpenseManager/output/; open data_%Y.html)"))))
+           ;;"(cd ~/Documents/Code/ExpenseManager/output/; open %Y_data.html)"
+           "(cd ~/Documents/Code/ExpenseManager/output/; open index.html)"
+           ))))
     (message (string-trim output))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
