@@ -26,11 +26,13 @@
 ;(setq geiser-repl-read-only-prompt-p nil)
 
 ;; autodoc mode が煩いから、止める
-(setq geiser-mode-autodoc-p nil)
+;; (setq geiser-mode-autodoc-p nil)
 
-;; 'C-.' で redo したいので、解除
 (defun geiser-mode-hooks ()
-  (define-key geiser-mode-map (kbd "C-.") nil))
+  ;; 'C-.' で redo したいので、解除
+  (define-key geiser-mode-map (kbd "C-.") nil)
+  ;; disable autodoc (もっと良い方法があるはずだが)
+  (geiser-autodoc-mode 0))
 (add-hook 'geiser-mode-hook 'geiser-mode-hooks)
 
 
