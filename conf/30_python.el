@@ -7,6 +7,18 @@
 ;(setq python-shell-interpreter "ipython3")
 
 
-;; python-mode
-;; という標準でないものもあるらしい。
-;; が、良く分からん。やめよ。
+;; emacs 標準の python mode とは別の
+;; python-mode.el を使ってみる
+;; REF: https://www.emacswiki.org/emacs/ProgrammingWithPythonModeDotEl
+(autoload 'python-mode "python-mode" "Python Mode." t)
+(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+(add-to-list 'interpreter-mode-alist '("python" . python-mode))
+
+;; Emacs 標準のものは Python と出るが
+;; こちらは Py
+;; Abbrev か何かのエラーが出る？
+
+;; (defun python-mode-hooks ()
+;;   ;; 'C-.' で redo したいので、解除
+;;   (define-key python-mode-map (kbd "<C-backspace>") nil))
+;; (add-hook 'python-mode-hook 'python-mode-hooks)

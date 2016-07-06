@@ -56,11 +56,13 @@
 (depends-on "geiser")
 ;; OCaml
 (depends-on "tuareg")
+;; Python
+;; emacs 標準でないものも使ってみる
+(depends-on "python-mode")
 ;; graphviz
 (depends-on "graphviz-dot-mode")
 ;; HDL
 (depends-on "verilog-mode")
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; items added by cask init

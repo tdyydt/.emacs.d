@@ -30,11 +30,21 @@
 
 (defun geiser-mode-hooks ()
   ;; 'C-.' で redo したいので、解除
-  (define-key geiser-mode-map (kbd "C-.") nil)
-  ;; disable autodoc (もっと良い方法があるはずだが)
-  (geiser-autodoc-mode 0))
+  (define-key geiser-mode-map (kbd "C-.") nil))
 (add-hook 'geiser-mode-hook 'geiser-mode-hooks)
 
+;; REPL は
+;; geiser-repl
+;; というモード。コレの起動時に
+;; geiser-autodocsetq -mode
+;; が付いてしまう
+
+;; defcustom でサーチするといい
+;; finally found @geiser-repl.el
+(setq geiser-repl-autodoc-p nil)
+;; 通常の rkt 編集時モードも同様
+;; autodoc-mode 有りだと 'Racket/A' となる
+(setq geiser-mode-autodoc-p nil)
 
 ;; geiser-racket-init-file
 ;; に設定されている文字列ファイルが、racket 起動時に実行される

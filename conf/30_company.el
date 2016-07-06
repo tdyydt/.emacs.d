@@ -46,23 +46,6 @@
 (setq company-idle-delay nil)
 ;(setq company-minimum-prefix-length 2) ; デフォルトは4
 
-;; closing parenthesis 等を自動で補完するという
-;; 設定を発見した (company.el)
-;; 使わないので、nil を設定。
-;; 閉じカッコを補完候補にして、勝手に消す仕様は無くなる。はず。
-;; (setq company-auto-complete-chars '())
-;; (setq company-auto-complete nil)
-;; -> なりませんでした。
-;; company-grab とか？？
-;; github (https://github.com/company-mode/company-mode/wiki/Switching-from-AC)
-;; を見て、色々仕様を知るべし
-
-;; 色々と研究してみて理由がわかった。
-;; company のせいではない。
-;; () を打って、Shift を離さないまま、C-b を押すものだから、
-;; region 選択に入ってしまう。
-
-
 ;; TODO: 日本語は補完対象外にする。
 ;; AC はやり方がネットにあったが、company のほうは如何せん、日本語ユーザが少ないのでね
 
