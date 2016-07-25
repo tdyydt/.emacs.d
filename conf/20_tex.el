@@ -14,15 +14,13 @@
 (setq tex-default-mode 'latex-mode)
 
 ;; C-j が tex 用の段落変えるコマンドになっているので
+;; ふつうの C-j に変える
 (defun latex-mode-hooks ()
   (define-key tex-mode-map (kbd "C-j") 'electric-newline-and-maybe-indent))
 (add-hook 'latex-mode-hook 'latex-mode-hooks)
 
-;; TODO:
-;; latex-XXX か tex-XXX か
-;; どちらを使うべきなのか、いつも迷う
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; compile command
 
 ;; C-c C-f (タイプセット; latex-run-command が実行される。default=latex)
 ;; => 無理
@@ -45,13 +43,17 @@
 ;; OUT => 出来上がるファイルの名前 (明示しなく =nil ても良い？)
 (setq tex-compile-commands
       '(("latexmk %f && latexmk -c %f" "%f" "%r.pdf")
-        ("dvipdfmx %r.dvi" "%r.dvi" "%r.pdf")
+        ;; touch, to force rebuild
+        ;; OUT に #f はしないほうがいい
+        ("touch %f" "%f" nil)
+        ;; ("dvipdfmx %r.dvi" "%r.dvi" "%r.pdf")
         ("platex %f" "%f" "%r.dvi")
         ("open -a Skim.app %r.pdf" "%r.pdf" nil)
-        ;; clean temp files
-        ;;("latexmk -c" t nil)
         ))
+;; latexmk がデフォルト
+;; latexmk の後に open という順序になってくれている
 
+;; "latexmk -c" => clean tmp files
 ;; 自動で clean したのので && を使えばいい
 ;; REF: http://tex.stackexchange.com/questions/225222/latexmk-cleanup
 

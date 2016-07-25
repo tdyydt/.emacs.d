@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-06-18 17:15:44>
+;; Time-stamp: <2016-07-24 17:17:11>
 ;; recentf & recentf-ext.el
 
 (require 'recentf)
@@ -42,9 +42,9 @@
 (setq recentf-auto-cleanup 'never)
 ;; clean up in every 90 secs
 ;; remove files which no longer exists
-(run-with-idle-timer 90 t 'silent-recentf-cleanup)
-;; save .recentf every 30 secs (when idle)
 ;; 真偽値は repeat の有無を示す．
+(run-with-idle-timer 30 t 'silent-recentf-cleanup)
+;; save .recentf every 30 secs (when idle)
 (run-with-idle-timer 30 t 'silent-recentf-save-list)
 
 

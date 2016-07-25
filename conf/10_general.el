@@ -99,9 +99,10 @@
 ;; REF: http://ergoemacs.org/emacs/emacs_auto-activate_a_major-mode.html
 ;; 特定のファイルを、特定の major mode で開く
 ;; Emacs Regexp: http://ergoemacs.org/emacs/emacs_regex.html
-
-(add-to-list 'auto-mode-alist
-             '("[Rr]eadme" . markdown-mode))
+;; REF: http://qiita.com/aKenjiKato/items/b2745964aa11b39dfe38
+(add-to-list 'auto-mode-alist '("[Rr]eadme" . markdown-mode))
+;; Small-C
+(add-to-list 'auto-mode-alist '("\\.sc\\'" . c-mode))
 
 ;; 行頭に
 ;; -*- mode: org-*-

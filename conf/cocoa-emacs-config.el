@@ -34,6 +34,8 @@
 ;; magit-status
 ;; cmd-g (git の g ということで)
 (global-set-key (kbd "s-g") 'magit-status)
+;; stage file
+;; (global-set-key (kbd "s-a") 'magit-stage-file)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; IME patch
