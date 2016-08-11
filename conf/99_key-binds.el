@@ -22,6 +22,8 @@
 
 ;; あまり使わないし 'C-x b' とよく間違えるので
 (global-set-key (kbd "C-x C-b") nil)
+;; disable suspend frame
+(global-set-key (kbd "C-z") nil)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 行頭で C-a した時に (bolp -> 't)，

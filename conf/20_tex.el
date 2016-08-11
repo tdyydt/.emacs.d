@@ -32,38 +32,36 @@
 ;; (setq latex-run-command "latexmk")
 
 ;; C-c C-c (ユーザ定義コマンド; tex-compile-commands から選択) の設定
-;; デフォルトのものは使わないものが多いので
-;; 書き換えてしまう
-;; 先頭のものほど、優先度が高いようだ
+;; デフォルトのものは使わないものを書き換えてしまう
 
-;; each element of tex-compile-commands should be:
-;; of the form (FORMAT IN OUT)
+;; each element of tex-compile-commands
+;; should be of the form (FORMAT IN OUT)
 ;; FORMAT => command (%f: filename, %r: filename without extension)
 ;; IN => string, t nil
+;; t to indicate that the input is all the TeX files of the document
+;; (input を考慮するということか、でなはくて、いつでも、ということ)
 ;; OUT => 出来上がるファイルの名前 (明示しなく =nil ても良い？)
 (setq tex-compile-commands
-      '(("latexmk %f && latexmk -c %f" "%f" "%r.pdf")
+      '(;;(" latexmk %f && latexmk -c %f" "*.tex" "%r.pdf")
+        ;; (" latexmk %f" t "%r.pdf")
+        ;;(" latexmk %f && latexmk -c %f" "%f" "%r.pdf")
+        (" latexmk %f && \\rm %r.{fls,log,aux,blg}" t "%r.pdf")
         ;; touch, to force rebuild
         ;; OUT に #f はしないほうがいい
-        ("touch %f" "%f" nil)
+        (" touch %f" "%f" nil)
         ;; ("dvipdfmx %r.dvi" "%r.dvi" "%r.pdf")
-        ("platex %f" "%f" "%r.dvi")
-        ("open -a Skim.app %r.pdf" "%r.pdf" nil)
+        (" platex %f" "%f" "%r.dvi")
+        (" open -a Skim.app %r.pdf" "%r.pdf" nil)
         ))
 ;; latexmk がデフォルト
 ;; latexmk の後に open という順序になってくれている
+;; spc から始めて zsh の履歴に残さない。
 
 ;; "latexmk -c" => clean tmp files
 ;; 自動で clean したのので && を使えばいい
 ;; REF: http://tex.stackexchange.com/questions/225222/latexmk-cleanup
+;; clean すると、aux が消えて、latexmk に
+;; ファイルの更新情報が消える。
 
-
-;; C-c C-v にバインドされている
-;; tex-view 関数の書き換え (少し強引) --> 効かない
-;; TODO: my-tex-view を C-c C-v に re-bind
-;; (defun tex-view ()
-;;   (interactive)
-;;   ;; tex shell にコマンドを送る (?)
-;;   ;; tex-print-file は編集中の tex ファイルのパス
-;;   (tex-send-command "/usr/bin/open -a Skim.app"
-;;                     (tex-append tex-print-file ".pdf")))
+;; && rm #r.dvi
+;; を追加してもいいか
