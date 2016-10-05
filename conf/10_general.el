@@ -35,6 +35,10 @@
 (setq require-final-newline t)
 (setq mode-require-final-newline t)
 
+;; default comment start
+;; REF:http://stackoverflow.com/questions/15120346/emacs-setting-comment-character-by-file-extension
+(setq-default comment-start "# ")
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ビープ音消去
 ;; ビープ音を visible-bell に変更
