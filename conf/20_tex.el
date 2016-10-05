@@ -45,10 +45,10 @@
       '(;;(" latexmk %f && latexmk -c %f" "*.tex" "%r.pdf")
         ;; (" latexmk %f" t "%r.pdf")
         ;;(" latexmk %f && latexmk -c %f" "%f" "%r.pdf")
-        (" latexmk %f && \\rm %r.{fls,log,aux,blg}" t "%r.pdf")
+        (" latexmk %f && \\rm %r.{fls,log,blg}" t "%r.pdf")
         ;; touch, to force rebuild
-        ;; OUT に #f はしないほうがいい
-        (" touch %f" "%f" nil)
+        ;; touch しても同じ, fdb_latexmk を消せばいい
+        (" \\rm %r.fdb_latexmk" "%f" nil)
         ;; ("dvipdfmx %r.dvi" "%r.dvi" "%r.pdf")
         (" platex %f" "%f" "%r.dvi")
         (" open -a Skim.app %r.pdf" "%r.pdf" nil)
