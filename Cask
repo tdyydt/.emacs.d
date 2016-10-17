@@ -63,6 +63,8 @@
 (depends-on "graphviz-dot-mode")
 ;; HDL
 (depends-on "verilog-mode")
+;; Coq (proof-general plugin)
+(depends-on "company-coq")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; items added by cask init

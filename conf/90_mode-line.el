@@ -27,6 +27,7 @@
   '(;; For minor-mode, first char is 'space'
     (undo-tree-mode . " UT")
     (company-mode . " com")
+    (company-coq-mode . " com-coq")
 
     ;; Major modes
     ;;(python-mode . "py")

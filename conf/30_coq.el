@@ -7,4 +7,11 @@
 ;; /usr/local/share/emacs/site-lisp/proof-general
 ;; に symlink が張られていて、load-path にはいる
 
+;; needed
 (setq coq-prog-name "~/.opam/system/bin/coqtop")
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; plugin
+;; company-coq
+(add-hook 'coq-mode-hook #'company-coq-mode)
