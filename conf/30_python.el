@@ -22,3 +22,9 @@
 ;;   ;; 'C-.' で redo したいので、解除
 ;;   (define-key python-mode-map (kbd "<C-backspace>") nil))
 ;; (add-hook 'python-mode-hook 'python-mode-hooks)
+
+(defun python-mode-hooks ()
+  ;; avoid annoying [py-indent-or-complete]
+  (define-key python-mode-map (kbd "<tab>") 'indent-for-tab-command)
+  )
+(add-hook 'python-mode-hook 'python-mode-hooks)

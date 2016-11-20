@@ -23,6 +23,7 @@
 ;; 明朝は少し違う。角ゴがデフォルトと思う。
 ;; 丸ゴもほとんど同じだが、良く見ると確かに丸い。
 ;; Sans は角ゴと変わらんというか、謎。
+;; via: http://d.hatena.ne.jp/tomoya/20100828/1282948135
 
 (cl-flet ((choose-font
            (v)
@@ -31,11 +32,21 @@
                  ((= v 2) "Hiragino Mincho ProN")      ; 明朝
                  ((= v 3) "Hiragino Sans")             ; 詳細不明
                  )))
-  (set-fontset-font
-   nil
-   'japanese-jisx0208
-   (font-spec :family (choose-font 0)
-              :size 12)))
+  (mapcar (lambda (charset)
+            (set-fontset-font
+             nil
+             charset
+             ;'japanese-jisx0208
+             (font-spec :family (choose-font 0)
+                        :size 12)))
+          '(japanese-jisx0208
+            #x309A        ; 半濁点 ゚
+            #x3099        ; 濁点 ゙
+            ;;
+            ;; 'unicode
+            ;; にして ascii も含めて設定してから、下で ascii だけ上書きする
+            ;; という考え方もあり得る。
+            )))
 
 ;; TODO: [May 23, 2016]
 ;; set-fontset-font というのと、set-face-attribute
