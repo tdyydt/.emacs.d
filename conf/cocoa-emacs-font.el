@@ -1,16 +1,6 @@
 ;; font
 ;; Mac
 
-;; デフォルトでは Menlo
-;; Menlo も似ているが、Monaco の方が好み。
-;; (Monaco の方がカワイイ系で、少しデカい)
-;; iTerm でも Monaco を使用している。
-
-;; ちなみに、サイズは細かく設定した所で、もともとないサイズだと丸められるので注意。
-;; 110 (11pt) とか 120 (12pt) とか
-;; フォントによって、画面のサイズすら変わるのは何なのだ。よく分からない。
-;; それゆえ、同じサイズでも見た目が違う
-
 ;; COMMENT: [May 23, 2016]
 ;; かなり状況が改善した。
 ;; set-fontset-font で、日本語フォントのサイズと、
@@ -25,28 +15,26 @@
 ;; Sans は角ゴと変わらんというか、謎。
 ;; via: http://d.hatena.ne.jp/tomoya/20100828/1282948135
 
-(cl-flet ((choose-font
-           (v)
-           (cond ((= v 0) "Hiragino Kaku Gothic ProN") ; 角ゴ
-                 ((= v 1) "Hiragino Maru Gothic ProN") ; 丸ゴ
-                 ((= v 2) "Hiragino Mincho ProN")      ; 明朝
-                 ((= v 3) "Hiragino Sans")             ; 詳細不明
-                 )))
-  (mapcar (lambda (charset)
-            (set-fontset-font
-             nil
-             charset
-             ;'japanese-jisx0208
-             (font-spec :family (choose-font 0)
-                        :size 12)))
-          '(japanese-jisx0208
-            #x309A        ; 半濁点 ゚
-            #x3099        ; 濁点 ゙
-            ;;
-            ;; 'unicode
-            ;; にして ascii も含めて設定してから、下で ascii だけ上書きする
-            ;; という考え方もあり得る。
-            )))
+(defun choose-japanese-font (v)
+    (cond ((= v 0) "Hiragino Kaku Gothic ProN") ; 角ゴ
+          ((= v 1) "Hiragino Maru Gothic ProN") ; 丸ゴ
+          ((= v 2) "Hiragino Mincho ProN")      ; 明朝
+          ((= v 3) "Hiragino Sans")             ; 詳細不明
+          ))
+(mapcar (lambda (charset)
+          (set-fontset-font
+           nil
+           charset
+           (font-spec :family (choose-japanese-font 0)
+                      :size 12)))
+        '(japanese-jisx0208
+          #x309A        ; 半濁点 ゚
+          #x3099        ; 濁点 ゙
+          ;;
+          ;; 'unicode
+          ;; にして ascii も含めて設定してから、下で ascii だけ上書きする
+          ;; という考え方もあり得る。
+          ))
 
 ;; TODO: [May 23, 2016]
 ;; set-fontset-font というのと、set-face-attribute
@@ -75,30 +63,23 @@
 ;; 数字だけフォントを変えるという荒業もあろうが、1 と l の区別が曖昧に
 ;; なったりしかねない。
 
-
-;; flet は common lisp の関数由来と思われるが、
-;; cl-lib という標準 ? のライブラリがあり、そこに含まれる cl-flet
-;; を使っている。つまり (require 'cl) は不要ということだろう。
-;; Emacs lisp では普通の let ではこういうものは書けないらしい。
-
 ;; フォントを変えやすく [May 23, 2016]
 ;; サイズは割と相対的なもののようなので、ちょうど良いサイズとの
 ;; コンスセルを作っておく。
-(cl-flet ((choose-font
-           (v)
-           (cond ((= v 0) '("Inconsolata" . 14)) ; prefered!!
-                 ((= v 1) '("Monaco" . 11))
-                 ((= v 2) '("Menlo" . 12))       ; default
-                 )))
-  ;; you can customize HERE:
-  (let ((chosen-font (choose-font 0)))
-    (set-fontset-font
-     nil
-     'ascii
-     (font-spec :family (car chosen-font)
-                :size (cdr chosen-font)))))
 
 ;; 実験の結果、
 ;; Monaco 11pt, Inconsolata 14pt
 ;; がほぼ同じ大きさ！
 ;; Menlo 12pt とは少しずれるが、これくらいがちょうど！
+
+(defun choose-ascii-font (v)
+  (cond ((= v 0) '("Inconsolata" . 14)) ; prefered!!
+        ((= v 1) '("Monaco" . 11))
+        ((= v 2) '("Menlo" . 12))       ; default
+        ))
+(let ((chosen-font (choose-ascii-font 0)))
+  (set-fontset-font
+   nil
+   'ascii
+   (font-spec :family (car chosen-font)
+              :size (cdr chosen-font))))
