@@ -13,7 +13,16 @@
 ; (setq default-buffer-file-coding-system 'utf-8-unix)
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; charanters
+;; TODO: move to another file
+;; utility, char, ...
+
 ;; 濁点半濁点分離問題の解消
 ;; ucs-normalize-NFC-region 関数が使える
 ;; REF: http://tech.3rd-p-zombie.net/entry/20120805/1344169124
 (require 'ucs-normalize)
+
+;; TODO:
+;; 似た名前の normalize 関数が二つあってどちらかわからなくなるので
+;; alias を。

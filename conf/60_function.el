@@ -1,4 +1,5 @@
 ;; original functions
+;; utility functions
 
 ;; TODO: [May 24, 2016]
 ;; my- という prefix を付けることで、カスタマイズ関数を
@@ -49,6 +50,22 @@
            "(cd ~/Documents/Code/ExpenseManager/output/; open index.html)"
            ))))
     (message (string-trim output))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; replace
+;; fix single quote
+;; illegal
+;; 選択範囲の region の中の buffer で
+;; ’
+;; を
+;; '
+;; に置き換える。
+;; (replace-string "’" "'")
+;; を関数にして使いやすくする。TODO:
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; 以下、ネットに転がっていた便利関数たち
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; swap screen
