@@ -8,3 +8,8 @@
 ;;   (interactive)
 ;;   (tuareg-run-process-if-needed "ocaml")
 ;;   (display-buffer tuareg-interactive-buffer-name))
+
+;; .ml, .mli, .mly, .mll, and .mlp
+;; via: https://www.emacswiki.org/emacs/AutoModeAlist
+(add-to-list 'auto-mode-alist
+             '("\\.ml[iylp]?\\'" . tuareg-mode))

@@ -56,6 +56,7 @@
 (depends-on "geiser")
 ;; OCaml
 (depends-on "tuareg")
+;; => re-install by opam
 ;; Python
 ;; emacs 標準でないものも使ってみる
 (depends-on "python-mode")

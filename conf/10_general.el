@@ -8,38 +8,6 @@
       `((".*" ,(expand-file-name "~/.emacs.d/backups/") t)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(when window-system                     ; CLI でない場合 (p.65)
-  (tool-bar-mode 0)                     ; tool-bar 非表示
-  (scroll-bar-mode 0))                  ; scroll-bar
-
-;; やめる 11/02
-;; 行番号表示
-; (global-linum-mode)
-;(setq linum-format "%5d")
-
-;; 対応するカッコを点滅
-(show-paren-mode t)
-;; インデントに TAB を使用しない
-(setq-default indent-tabs-mode nil)
-;; コメントスタイル (C言語など)
-(setq comment-style 'multi-line)
-
-;; 保存時に，行末の余計なスペースを削除
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-;; shebang なら？実行権限付ける
-(add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
-
-;; add newline at end of file (if it were not there)
-;; when saving the file
-;; Ref: http://www.gnu.org/software/emacs/manual/html_node/emacs/Customize-Save.html
-(setq require-final-newline t)
-(setq mode-require-final-newline t)
-
-;; default comment start
-;; REF:http://stackoverflow.com/questions/15120346/emacs-setting-comment-character-by-file-extension
-(setq-default comment-start "# ")
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ビープ音消去
 ;; ビープ音を visible-bell に変更
 ;; visible-bell 時に呼び出される関数は変更することができるので，
@@ -79,10 +47,45 @@
 (global-auto-revert-mode t)
 
 ;; disable shift selection
-;; Ref: https://www.gnu.org/software/emacs/manual/html_node/emacs/Shift-Selection.html#Shift-Selection
+;; via: https://www.gnu.org/software/emacs/manual/html_node/emacs/Shift-Selection.html#Shift-Selection
 (setq shift-select-mode nil)
 
 (setq dired-auto-revert-buffer t)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(when window-system                     ; CLI でない場合 (p.65)
+  (tool-bar-mode 0)                     ; tool-bar 非表示
+  (scroll-bar-mode 0))                  ; scroll-bar
+
+;; やめる 11/02
+;; 行番号表示
+; (global-linum-mode)
+;(setq linum-format "%5d")
+
+;; 対応するカッコを点滅
+(show-paren-mode t)
+;; インデントに TAB を使用しない
+(setq-default indent-tabs-mode nil)
+;; コメントスタイル (C言語など)
+(setq comment-style 'multi-line)
+
+
+;; 保存時に，行末の余計なスペースを削除
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+;; shebang なら？実行権限付ける
+(add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
+
+;; add newline at end of file (if it were not there)
+;; when saving the file
+;; via: http://www.gnu.org/software/emacs/manual/html_node/emacs/Customize-Save.html
+(setq require-final-newline t)
+(setq mode-require-final-newline t)
+
+;; default comment start
+;; REF:http://stackoverflow.com/questions/15120346/emacs-setting-comment-character-by-file-extension
+(setq-default comment-start "# ")
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Emacs 同梱のいろいろ
@@ -99,11 +102,12 @@
 (setq uniquify-buffer-name-style
       'post-forward-angle-brackets)
 
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; REF: http://ergoemacs.org/emacs/emacs_auto-activate_a_major-mode.html
+;; via: http://ergoemacs.org/emacs/emacs_auto-activate_a_major-mode.html
 ;; 特定のファイルを、特定の major mode で開く
 ;; Emacs Regexp: http://ergoemacs.org/emacs/emacs_regex.html
-;; REF: http://qiita.com/aKenjiKato/items/b2745964aa11b39dfe38
+;; via: http://qiita.com/aKenjiKato/items/b2745964aa11b39dfe38
 (add-to-list 'auto-mode-alist '("[Rr]eadme" . markdown-mode))
 ;; Small-C
 (add-to-list 'auto-mode-alist '("\\.sc\\'" . c-mode))
