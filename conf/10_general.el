@@ -52,7 +52,6 @@
 
 (setq dired-auto-revert-buffer t)
 
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (when window-system                     ; CLI でない場合 (p.65)
   (tool-bar-mode 0)                     ; tool-bar 非表示
