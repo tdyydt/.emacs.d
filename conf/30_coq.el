@@ -15,3 +15,10 @@
 ;; plugin
 ;; company-coq
 (add-hook 'coq-mode-hook #'company-coq-mode)
+
+;; Company coq で minor mode が増えすぎる。
+(defun company-coq-mode-hooks ()
+  (yas-minor-mode 0)
+  ;; Hide/Show
+  (hs-minor-mode 0))
+(add-hook 'company-coq-mode-hook 'company-coq-mode-hooks)
