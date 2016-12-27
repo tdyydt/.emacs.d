@@ -17,8 +17,9 @@
 (add-hook 'coq-mode-hook #'company-coq-mode)
 
 ;; Company coq で minor mode が増えすぎる。
-(defun company-coq-mode-hooks ()
-  (yas-minor-mode 0)
-  ;; Hide/Show
-  (hs-minor-mode 0))
-(add-hook 'company-coq-mode-hook 'company-coq-mode-hooks)
+;; (defun company-coq-mode-hooks ()
+;;   ;; なんだかんだ補完の時に yas も無いと、変な挙動になる。
+;;   ;; (yas-minor-mode 0)
+;;   ;; Hide/Show
+;;   (hs-minor-mode 0))
+;; (add-hook 'company-coq-mode-hook 'company-coq-mode-hooks)

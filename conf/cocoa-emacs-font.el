@@ -41,7 +41,7 @@
 ;; というのがあって、この違いが謎。set-fontset-font だけでも行けそうで、
 ;; こちらのほうが直感的に分かりやすいので、こうする。
 ;; いつか
-;; REF: http://lioon.net/emacs-change-font-size-quickly
+;; via: http://lioon.net/emacs-change-font-size-quickly
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ascii font

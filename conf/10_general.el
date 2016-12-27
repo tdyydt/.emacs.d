@@ -91,8 +91,8 @@
 
 ;; cua-mode (emacs同梱)
 ;; 矩形選択が便利 "C-RET" ("C-SPC" リージョン選択)
-(cua-mode t)
-(setq cua-enable-cua-keys nil)
+;; (cua-mode t)
+;; (setq cua-enable-cua-keys nil)
 
 ;; uniquify (emacs同梱)
 ;; バッファ名が重複した時のバッファ名の区別の方法を変える
