@@ -1,5 +1,7 @@
 ;; 雑多な設定
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; backup
 ;; backup, auto-save-file を
 ;; フォルダ ~/.emacs.d/backups/ に集める (p.103)
 (add-to-list 'backup-directory-alist
@@ -15,8 +17,7 @@
 (setq visible-bell t)
 (setq ring-bell-function 'ignore)
 
-;; C-m と C-j の挙動を入れ換えるという謎の設定を OFF に．
-;; これがデフォルトで ON になってるらしい。。。
+;; C-m と C-j を入れ換えさせない
 (electric-indent-mode 0)
 
 ;; drag & drop によりファイルを開く
@@ -33,7 +34,6 @@
 (setq confirm-kill-emacs 'y-or-n-p)
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Mini-Buf での補完時に大文字小文字の区別をしない
 ;; (setq completion-ignore-case t) ;古い？
 (setq read-buffer-completion-ignore-case t)
@@ -50,17 +50,16 @@
 ;; via: https://www.gnu.org/software/emacs/manual/html_node/emacs/Shift-Selection.html#Shift-Selection
 (setq shift-select-mode nil)
 
-(setq dired-auto-revert-buffer t)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (when window-system                     ; CLI でない場合 (p.65)
   (tool-bar-mode 0)                     ; tool-bar 非表示
   (scroll-bar-mode 0))                  ; scroll-bar
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; やめる 11/02
 ;; 行番号表示
-; (global-linum-mode)
-;(setq linum-format "%5d")
+;; (global-linum-mode)
+;; (setq linum-format "%5d")
 
 ;; 対応するカッコを点滅
 (show-paren-mode t)
@@ -69,6 +68,9 @@
 ;; コメントスタイル (C言語など)
 (setq comment-style 'multi-line)
 
+;; default comment start
+;; REF:http://stackoverflow.com/questions/15120346/emacs-setting-comment-character-by-file-extension
+(setq-default comment-start "# ")
 
 ;; 保存時に，行末の余計なスペースを削除
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
@@ -81,14 +83,18 @@
 (setq require-final-newline t)
 (setq mode-require-final-newline t)
 
-;; default comment start
-;; REF:http://stackoverflow.com/questions/15120346/emacs-setting-comment-character-by-file-extension
-(setq-default comment-start "# ")
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; dired
+(setq dired-auto-revert-buffer t)
+
+;; via: http://www.bookshelf.jp/soft/meadow_25.html#SEC292
+(require 'wdired)
+;; ファイル名の一括置換に便利
+(define-key dired-mode-map "r" 'wdired-change-to-wdired-mode)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Emacs 同梱のいろいろ
-
 ;; cua-mode (emacs同梱)
 ;; 矩形選択が便利 "C-RET" ("C-SPC" リージョン選択)
 ;; (cua-mode t)
@@ -97,9 +103,9 @@
 ;; uniquify (emacs同梱)
 ;; バッファ名が重複した時のバッファ名の区別の方法を変える
 ;; default だと数字が付く
-(require 'uniquify)
-(setq uniquify-buffer-name-style
-      'post-forward-angle-brackets)
+;; (require 'uniquify)
+;; (setq uniquify-buffer-name-style
+;;       'post-forward-angle-brackets)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
