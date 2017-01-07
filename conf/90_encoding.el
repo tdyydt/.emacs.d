@@ -1,6 +1,14 @@
+;; encoding
+;; language environments
+
 ;; 日本語 & 文字コード (p.85)
 ;; 無くてもいけるものもあるが一応
-(set-language-environment "Japanese")
+
+;; Japanese にすると例えば tutorial (f1 t) が日本語になって
+;; 嫌だ。
+;; (set-language-environment "Japanese")
+(set-language-environment "English")
+
 (prefer-coding-system 'utf-8)
 ;; 自動認識の際の優先順位
 (set-coding-system-priority 'utf-8)

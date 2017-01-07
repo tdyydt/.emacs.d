@@ -75,7 +75,8 @@
 ;; 保存時に，行末の余計なスペースを削除
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 ;; shebang なら？実行権限付ける
-(add-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
+(add-hook 'after-save-hook
+          'executable-make-buffer-file-executable-if-script-p)
 
 ;; add newline at end of file (if it were not there)
 ;; when saving the file
@@ -103,9 +104,9 @@
 ;; uniquify (emacs同梱)
 ;; バッファ名が重複した時のバッファ名の区別の方法を変える
 ;; default だと数字が付く
-;; (require 'uniquify)
-;; (setq uniquify-buffer-name-style
-;;       'post-forward-angle-brackets)
+(require 'uniquify)
+(setq uniquify-buffer-name-style
+      'post-forward-angle-brackets)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
