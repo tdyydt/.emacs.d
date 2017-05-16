@@ -9,6 +9,9 @@
 ;; (set-language-environment "Japanese")
 (set-language-environment "English")
 
+;; たぶん English にすると ascii がデフォルトになるので、
+;; ここで明示的に utf-8 に変更する必要がある。
+
 (prefer-coding-system 'utf-8)
 ;; 自動認識の際の優先順位
 (set-coding-system-priority 'utf-8)
