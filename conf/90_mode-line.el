@@ -78,7 +78,7 @@
 ;; pathname の幅
 ;; (MIN-WIDTH . MAX-WIDTH) で指定するとのこと
 ;; 最小なし (nil), 最大 44 を意図する。
-(setq sml/name-width '(nil . 44))
+;; (setq sml/name-width '(nil . 44))
 
 ;;;; mode 名のところの設定
 (setq sml/shorten-modes t)
