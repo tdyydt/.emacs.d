@@ -33,6 +33,9 @@
 (require 'init-loader)
 (init-loader-load "~/.emacs.d/conf")
 
+;; This is the end of my setting part.
+;; Following config may be added by other programs.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
