@@ -1,4 +1,6 @@
 ;;;; Highlight current line
+(el-get-bundle hi-line+)
+(el-get-bundle col-highlight)
 ;(require 'hl-line)
 (global-hl-line-mode t)
 

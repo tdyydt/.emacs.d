@@ -1,3 +1,4 @@
+(el-get-bundle wc-mode)
 (require 'wc-mode)
 ;; LaTeX ではなくて、すべて小文字らしい
 ;; describe variable するとハッキリする。

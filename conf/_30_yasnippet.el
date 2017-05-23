@@ -1,4 +1,4 @@
-;; Time-stamp: <2016-03-23 12:33:27>
+(el-get-bundle yasnippet)
 (require 'yasnippet)
 ;; global に使う
 (yas-global-mode t)

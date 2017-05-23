@@ -1,5 +1,4 @@
-;; init.el に保存してたのだが，それだとなんか効いてない感じだったので変更
-
+;; load-path
 (defun add-to-load-path (&rest paths)
   "recursively, add specified directory to load-path"
   (let (path)
@@ -13,4 +12,5 @@
 
 ;; exec-path-from-shell
 ;; emacs の PATH を shell と共有する
+(el-get-bundle exec-path-from-shell)
 (exec-path-from-shell-initialize)

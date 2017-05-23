@@ -1,6 +1,7 @@
-;; Time-stamp: <2016-07-24 17:17:11>
-;; recentf & recentf-ext.el
+;; recentf
 
+;; recentf-ext.el
+(el-get-bundle recentf-ext)
 (require 'recentf)
 (setq recentf-save-file "~/.emacs.d/.recentf")
 
@@ -20,6 +21,7 @@
 ;; tuning
 ;; avoid annoying messages
 ;; using "shut-up.el" in order to shut up recentf messages
+(el-get-bundle shut-up)
 (require 'shut-up)
 
 ;; 2015/12/11

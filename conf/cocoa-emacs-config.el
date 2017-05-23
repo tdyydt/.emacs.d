@@ -31,12 +31,6 @@
 ;;(global-set-key (kbd "C-s-f") 'toggle-frame-fullscreen)
 (global-set-key (kbd "<C-s-268632070>") 'toggle-frame-fullscreen)
 
-;; magit-status
-;; cmd-g (git の g ということで)
-(global-set-key (kbd "s-g") 'magit-status)
-;; stage file
-;; (global-set-key (kbd "s-a") 'magit-stage-file)
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; IME patch
 ;; 参考: http://qiita.com/catatsuy/items/886f1e0632c0b2760fb4

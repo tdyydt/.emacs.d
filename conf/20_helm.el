@@ -1,4 +1,7 @@
-;;;;; Helm (Anything)
+;; helm
+(el-get-bundle helm)
+(el-get-bundle helm-descbinds)
+
 (require 'helm-config)
 
 ;; helm-descbinds (キーバインド一覧)
@@ -11,8 +14,8 @@
 ;; Note: "C-x C-r" is bound to "find file READ-ONLY" by default.
 (global-set-key (kbd "C-x C-r") 'helm-for-files)
 
-;; Emacs 標準コマンドを Helm 版に置き換える:
-;; 参考: http://d.hatena.ne.jp/a_bicky/20140104/1388822688
+;; replace emacs file commands to Helm version:
+;; REF: http://d.hatena.ne.jp/a_bicky/20140104/1388822688
 (global-set-key (kbd "C-x b") 'helm-buffers-list)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "M-x") 'helm-M-x)
