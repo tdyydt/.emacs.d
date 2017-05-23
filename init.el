@@ -5,37 +5,31 @@
 (package-initialize)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; configure load-path
-;; EMACS 25 に移行する時に必要か？
-;; load-path (path.el から移行)
-;; (defun add-to-load-path (&rest paths)
-;;   "recursively, add specified directory to load-path"
-;;   (let (path)
-;;     (dolist (path paths paths)
-;;       (let ((default-directory
-;; 	      (expand-file-name (concat user-emacs-directory path))))
-;; 	(add-to-list 'load-path default-directory)
-;; 	(if (fboundp 'normal-top-level-add-subdirs-to-load-path)
-;; 	    (normal-top-level-add-subdirs-to-load-path))))))
-;; (add-to-load-path "elisp")
-;; ;; cask
-;; ;; emacs 25 にすると cask が load-path に入らないので
-;; (add-to-load-path (concat ".cask/" emacs-version))
 
-;; Emacs Lisp files have been installed to:
-;;  /usr/local/share/emacs/site-lisp/cask
-;; load-path に入っているので、場所指定は不要
-(require 'cask "/usr/local/share/emacs/site-lisp/cask/cask.el")
-(cask-initialize)
+;; el-get
+;; via: https://github.com/dimitri/el-get
+;; el-get の位置を指定
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+;; require it
+(unless (require 'el-get nil 'noerror)
+  (with-current-buffer
+      (url-retrieve-synchronously
+       "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
+    (goto-char (point-max))
+    (eval-print-last-sexp)))
+
+(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
+(el-get 'sync)
 
 ;; init-loader
 ;; Cask で導入している
+(el-get-bundle init-loader)
 (require 'init-loader)
 (init-loader-load "~/.emacs.d/conf")
 
 ;; This is the end of my setting part.
 ;; Following config may be added by other programs.
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
