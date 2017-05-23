@@ -1,4 +1,5 @@
 ;; python mode
+(el-get-bundle python-mode)
 
 ;; run-python (C-c C-p)
 ;; で起動するプログラムを "python" から変更

@@ -19,6 +19,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Geiser
 ;; Geiser is an Emacs environment to hack and have fun in Scheme.
+(el-get-bundle geiser)
 (require 'geiser)
 
 (setq geiser-racket-binary "racket")

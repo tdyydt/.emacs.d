@@ -1,5 +1,6 @@
 ;; OCaml
 ;; tuareg mode
+(el-get-bundle tuareg)
 
 ;; いつも "ocaml" を起動するだけで十分なので、
 ;; 関数定義を上書き。あまり綺麗でない

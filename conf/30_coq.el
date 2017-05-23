@@ -14,6 +14,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; plugin
 ;; company-coq
+(el-get-bundle company-coq)
 (add-hook 'coq-mode-hook #'company-coq-mode)
 
 ;; Company coq で minor mode が増えすぎる。

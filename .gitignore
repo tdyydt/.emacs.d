@@ -18,3 +18,7 @@ elpa_bak/*
 eshell/*
 games/
 org-memo/*
+
+el-get/
+elpa/
+tutorial/
