@@ -1,7 +1,6 @@
 ;; recentf
 
 ;; recentf-ext.el
-(el-get-bundle recentf-ext)
 (require 'recentf)
 (setq recentf-save-file "~/.emacs.d/.recentf")
 
@@ -53,4 +52,5 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; This should be written after (require 'recentf)
 ;; OR ".recentf" file will be initialized.
+(el-get-bundle recentf-ext)
 (require 'recentf-ext)

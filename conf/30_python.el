@@ -19,10 +19,6 @@
 ;; こちらは Py
 ;; Abbrev か何かのエラーが出る？
 
-;; (defun python-mode-hooks ()
-;;   ;; 'C-.' で redo したいので、解除
-;;   (define-key python-mode-map (kbd "<C-backspace>") nil))
-;; (add-hook 'python-mode-hook 'python-mode-hooks)
 
 (defun python-mode-hooks ()
   ;; avoid annoying [py-indent-or-complete]

@@ -12,12 +12,9 @@ bookmarks
 # elpa/
 # elisp/
 # archive-contents
-.cask/*
-elpa_bak/*
 
-eshell/*
-games/
-org-memo/*
+eshell
+games
 
 el-get/
 elpa/

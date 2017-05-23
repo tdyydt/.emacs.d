@@ -61,26 +61,3 @@
 ;; TODO: vr/query-replace が case-insensitive になってる？？
 ;; => isearch-toggle-case-fold が関係ありそう
 ;; Type \\[isearch-toggle-case-fold] to toggle search case-sensitivity.
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; isearch
-
-;; (define-key isearch-mode-map (kbd "C-b") 'backward-char)
-;; (define-key isearch-mode-map (kbd "C-b") 'nil)
-
-;; isearch の minibuf のなかで、backward-char するには？
-;; (defun isearch-mode-hooks ()
-;;   ;(define-key global-map (kbd "C-b") 'backward-char)
-;;   (define-key minibuffer-local-map (kbd "C-b") 'backward-char)
-;;   )
-;; (add-hook 'isearch-mode-hook 'isearch-mode-hooks)
-
-;; TODO:
-;; isearch のときに C-b とかすると、サーチが終了する
-;; 改善できれば
-
-;; インクリメンタルサーチなので、こんなもんかなあ
-;; 正規表現のサーチとかだと、
-
-;; 現状では検索用途にも vr/replace を使うのが良いような気がする。
