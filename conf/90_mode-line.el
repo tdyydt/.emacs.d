@@ -54,7 +54,7 @@
 ;; smart modeline
 ;; via: https://github.com/Malabarba/smart-mode-line#features
 (el-get-bundle smart-mode-line)
-(el-get-bundle smart-mode-line-power-theme)
+;;(el-get-bundle smart-mode-line-powerline-theme)
 
 ;; setup
 (sml/setup)
@@ -87,73 +87,3 @@
 ;; あまり意味が分からん。mode 名のところが長くなりすぎないようにしたい。
 ;; 行数とかは左に出てるので、現状どうでもいい。
 (setq sml/mode-width 'right)
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; powerline
-;; via: http://emacs.stackexchange.com/questions/281/how-do-i-get-a-fancier-mode-line-that-uses-solid-colors-and-triangles
-;; via: http://blog.shibayu36.org/entry/2014/04/01/094543
-;; via: http://blog.shibayu36.org/entry/2014/02/02/192924
-
-;; ;; なくても良さげ
-;; ;; (require 'smart-mode-line)
-
-;; ;; powerline には
-;; ;; いくつか変種があるとのこと
-;; ;; via: https://www.emacswiki.org/emacs/PowerLine
-
-;; ;; setup powerline
-;; (require 'powerline)
-
-;; ;; powerline-themes に定義されている
-;; (powerline-default-theme)
-;; ;(powerline-center-theme)
-
-;; ;; set separator:
-;; ;; nil, bar, curve, ...
-;; ;; あまり綺麗に表示されない
-;; ;; via: http://ytsk.hatenablog.com/entry/2015/09/23/021856
-;; (setq powerline-default-separator 'curve)
-;; ;; ファイルのどの位置にいるかの、示すバーを表示するか
-;; ;;(setq powerline-display-hud t)
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; 色はコレを参考に
-;; via: http://blog.shibayu36.org/entry/2014/02/11/160945
-;; color name list
-;; via: http://raebear.net/comp/emacscolors.html
-
-;; ;; for active window:
-;; (progn
-;;   (set-face-attribute 'mode-line nil
-;;                       :foreground "Brack"
-;;                       :background "violet"
-;;                       :box nil)
-;;   ;; major-mode, minor-mode のところ
-;;   (set-face-attribute 'powerline-active1 nil
-;;                       :foreground "Brack"
-;;                       :background "White"
-;;                       :inherit 'mode-line)
-;;   ;; 時計とかのところ
-;;   (set-face-attribute 'powerline-active2 nil
-;;                       :foreground "Brack"
-;;                       ;; :background "chocolate"
-;;                       :background "DarkOrange"
-;;                       :inherit 'mode-line))
-
-;; ;; for inactive windows:
-;; (let ((bg-color "gray20")
-;;       (fg-color "White"))
-;;   (set-face-attribute 'mode-line-inactive nil
-;;                       :foreground fg-color
-;;                       :background bg-color
-;;                       :box nil)
-;;   (set-face-attribute 'powerline-inactive1 nil
-;;                       :foreground fg-color
-;;                       :background bg-color
-;;                       :inherit 'mode-line)
-;;   (set-face-attribute 'powerline-inactive2 nil
-;;                       :foreground fg-color
-;;                       :background bg-color
-;;                       :inherit 'mode-line))
