@@ -5,7 +5,7 @@
 ;; 日本語文字をローマ字で検索できるようにする。
 ;; cmigemo コマンド (install by brew) を用いる。
 ;; cmigemo がインストールして居ない時は通常の検索を使えるように
-;; 参考 http://qiita.com/catatsuy/items/c5fa34ead92d496b8a51
+;; via: http://qiita.com/catatsuy/items/c5fa34ead92d496b8a51
 (when (and (executable-find "cmigemo")
            (require 'migemo nil t))
   ;; migemo コマンドの場所、辞書データの場所を設定しないといけない

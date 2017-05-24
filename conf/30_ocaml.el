@@ -1,5 +1,6 @@
 ;; OCaml
 ;; tuareg mode
+;; TODO: opam で入るのでは？el-get で入れる必要が無いのでは。
 (el-get-bundle tuareg)
 
 ;; いつも "ocaml" を起動するだけで十分なので、
@@ -10,6 +11,7 @@
 ;;   (tuareg-run-process-if-needed "ocaml")
 ;;   (display-buffer tuareg-interactive-buffer-name))
 
+;; enable tuareg-mode also in:
 ;; .ml, .mli, .mly, .mll, and .mlp
 ;; via: https://www.emacswiki.org/emacs/AutoModeAlist
 (add-to-list 'auto-mode-alist

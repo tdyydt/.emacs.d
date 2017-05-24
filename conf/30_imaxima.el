@@ -1,5 +1,5 @@
 ;; imaxima
-;; https://sites.google.com/site/imaximaimath/download-and-install/easy-install-on-mac-os-x
+;; via: https://sites.google.com/site/imaximaimath/download-and-install/easy-install-on-mac-os-x
 
 ;; maxima はパスが通っているので、設定しない
 ;; imaxima 用の elisp を path に追加

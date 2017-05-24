@@ -2,7 +2,8 @@
 (add-hook 'before-save-hook 'time-stamp)
 
 (setq time-stamp-active t)
-;; Time-stamp:<2017-05-23 20:30:18>, Last updated: <> とかを想定，と思ったけど無理か？
+;; Time-stamp:<2017-05-24 09:45:36>,
+;; Last updated: <> とかを想定，と思ったけど無理か？
 ;(setq time-stamp-start "([Tt]ime[ -][Ss]tamp|[Ll]ast[ -][Uu]pdated?)[ \t]*:[ \t]*<")
 (setq time-stamp-start "[Tt]ime[ -][Ss]tamp[ \t]*:[ \t]*<")
 (setq time-stamp-format "%:y-%02m-%02d %02H:%02M:%02S")

@@ -12,16 +12,13 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
-;; Note: "C-x C-r" is bound to "find file READ-ONLY" by default.
+;; overwrite "find file READ-ONLY"
 (global-set-key (kbd "C-x C-r") 'helm-for-files)
 
-;; replace emacs file commands to Helm version:
-;; REF: http://d.hatena.ne.jp/a_bicky/20140104/1388822688
+;; replace emacs file commands with Helm version:
 (global-set-key (kbd "C-x b") 'helm-buffers-list)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "M-x") 'helm-M-x)
-
-;(define-key helm-map (kbd "C-h") 'delete-backward-char)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
