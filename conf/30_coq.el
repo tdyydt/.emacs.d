@@ -14,5 +14,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; plugin
 ;; company-coq
-(el-get-bundle company-coq)
+;(el-get-bundle company-coq)
+;; => 依存関係で proof-general がインストールされ、いつもエラーになる
+;; のでコメントアウトする。
+;; proof-general を el-get で入れる選択肢自体は十分あり得る。
+
 (add-hook 'coq-mode-hook #'company-coq-mode)
