@@ -15,9 +15,10 @@
 
 ;; C-j が tex 用の段落変えるコマンドになっているので
 ;; ふつうの C-j に変える
-(defun latex-mode-hooks ()
-  (define-key tex-mode-map (kbd "C-j") 'electric-newline-and-maybe-indent))
-(add-hook 'latex-mode-hook 'latex-mode-hooks)
+(defun my-latex-mode-hooks ()
+  (define-key tex-mode-map
+    (kbd "C-j") 'electric-newline-and-maybe-indent))
+(add-hook 'latex-mode-hook 'my-latex-mode-hooks)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; compile command

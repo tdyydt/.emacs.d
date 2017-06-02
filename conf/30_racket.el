@@ -13,10 +13,10 @@
 ;; autodoc mode が煩いから、止める
 ;; (setq geiser-mode-autodoc-p nil)
 
-(defun geiser-mode-hooks ()
+(defun my-geiser-mode-hooks ()
   ;; 'C-.' で redo したいので、解除
   (define-key geiser-mode-map (kbd "C-.") nil))
-(add-hook 'geiser-mode-hook 'geiser-mode-hooks)
+(add-hook 'geiser-mode-hook 'my-geiser-mode-hooks)
 
 ;; REPL は
 ;; geiser-repl

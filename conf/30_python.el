@@ -20,8 +20,8 @@
 ;; Abbrev か何かのエラーが出る？
 
 
-(defun python-mode-hooks ()
+(defun my-python-mode-hooks ()
   ;; avoid annoying [py-indent-or-complete]
   (define-key python-mode-map (kbd "<tab>") 'indent-for-tab-command)
   )
-(add-hook 'python-mode-hook 'python-mode-hooks)
+(add-hook 'python-mode-hook 'my-python-mode-hooks)
