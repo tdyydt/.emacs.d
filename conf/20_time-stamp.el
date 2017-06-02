@@ -2,7 +2,7 @@
 (add-hook 'before-save-hook 'time-stamp)
 
 (setq time-stamp-active t)
-;; Time-stamp:<2017-05-24 09:45:36>,
+;; Time-stamp:<2017-06-02 20:53:56>,
 ;; Last updated: <> とかを想定，と思ったけど無理か？
 ;(setq time-stamp-start "([Tt]ime[ -][Ss]tamp|[Ll]ast[ -][Uu]pdated?)[ \t]*:[ \t]*<")
 (setq time-stamp-start "[Tt]ime[ -][Ss]tamp[ \t]*:[ \t]*<")
@@ -10,6 +10,7 @@
 (setq time-stamp-end ">")
 ;; 8行目まで見る
 (setq time-stamp-line-limit 8)
+
 
 ;; Reference (source: http://ochiailab.blogspot.jp/2012/11/time-stamp.html)
 ;;     %:a -- Monday 曜日

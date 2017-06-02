@@ -4,7 +4,7 @@
 ;; キーボード、トラックパッドについて
 
 ;; yen -> backslash
-;; ¥ (165) の代わりに \ (92) を入力する、ための設定
+;; ¥ (165) の代わりに \ (92) を入力するための設定
 (define-key global-map [165] [92])
 (global-set-key (kbd "C-¥") (kbd "C-\\"))
 (global-set-key (kbd "M-¥") (kbd "M-\\"))
@@ -33,19 +33,11 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; IME patch
-;; 参考: http://qiita.com/catatsuy/items/886f1e0632c0b2760fb4
-
-;; ここまですると、すこしやり過ぎ？
-;(setq default-input-method "MacOSX")
-;(mac-set-input-method-parameter "com.google.inputmethod.Japanese.base" `title "あ")
-
-;; TODO: minibuffer に入る時に 日本語モード オフ
-
-
+;; via: http://qiita.com/catatsuy/items/886f1e0632c0b2760fb4
 ;; via: http://qiita.com/catatsuy/items/c5fa34ead92d496b8a51
-;; IME patch で mac-change-language-to-us 関数が定義されている
 
-;; 関数が定義されてるときのみ hook に追加する
+;; IME patch で、mac-change-language-to-us 関数が定義されている
+;; この関数が定義されてるときのみ、各種 hook に追加する
 ;; via: http://ergoemacs.org/emacs/elisp_check_defined.html
 
 (when (fboundp 'mac-change-language-to-us)
