@@ -68,8 +68,9 @@
 ;;;; Pathname abbreviations
 ;; もとから定義されていたのを上書きする場合は t を付けてはいけない。
 ;; (add-to-list 'sml/replacer-regexp-list '("^~/Git-Projects/" ":Git:") t)
-(add-to-list 'sml/replacer-regexp-list '("^~/Documents/Code/" ":Code:"))
-(add-to-list 'sml/replacer-regexp-list '("^~/Documents/KU/" ":KU:"))
+(add-to-list 'sml/replacer-regexp-list '("^~/Work/" ":Work:"))
+(add-to-list 'sml/replacer-regexp-list '("^~/Work/Code/" ":Code:"))
+(add-to-list 'sml/replacer-regexp-list '("^~/Work/univ/" ":Univ:"))
 ;; ED => Emacs
 (add-to-list 'sml/replacer-regexp-list '("^~/\\.emacs\\.d/" ":Emacs:"))
 (add-to-list 'sml/replacer-regexp-list '("^~/Dropbox/" ":DBox:"))
