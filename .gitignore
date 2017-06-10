@@ -6,16 +6,15 @@ undohist/
 ac-comphist.dat
 kkcrc
 bookmarks
+abbrev_defs
 .emacs.desktop
-.recentf
-
-# elpa/
-# elisp/
-# archive-contents
+.recentf*
 
 eshell
 games
+tutorial
 
-el-get/
-elpa/
-tutorial/
+el-get
+elpa
+lisp
+themes
