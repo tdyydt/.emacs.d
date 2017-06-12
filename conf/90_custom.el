@@ -34,18 +34,28 @@
 
 ;; solarized
 ;; via: http://ethanschoonover.com/solarized
-;; (add-to-list 'custom-theme-load-path
-;;              "~/.emacs.d/themes/emacs-color-theme-solarized")
-;; ;; light/dark
+(add-to-list 'custom-theme-load-path
+             "~/.emacs.d/themes/emacs-color-theme-solarized")
+;; toggle light/dark
 ;; (setq frame-background-mode 'light)
 ;; (load-theme 'solarized t)
 
 ;; zenburn
-;; (add-to-list 'custom-theme-load-path
-;;              "~/.emacs.d/themes/zenburn-emacs")
+(add-to-list 'custom-theme-load-path
+             "~/.emacs.d/themes/zenburn-emacs")
 ;; (load-theme 'zenburn t)
 
 ;; Dracula
 (add-to-list 'custom-theme-load-path
              "~/.emacs.d/themes/dracula-emacs")
-(load-theme 'dracula t)
+;; (load-theme 'dracula t)
+
+;; monokai
+(add-to-list 'custom-theme-load-path
+             "~/.emacs.d/themes/monokai-emacs")
+;; (load-theme 'monokai t)
+
+;; built-in themes
+;;(load-theme 'manoj-dark t)
+;;(load-theme 'deeper-blue t)
+(load-theme 'wombat t)
