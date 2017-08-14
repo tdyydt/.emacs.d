@@ -9,7 +9,8 @@
 ;; el-get
 ;; via: https://github.com/dimitri/el-get
 ;; el-get の位置を指定
-(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+(add-to-list 'load-path
+             (expand-file-name "~/.emacs.d/el-get/el-get"))
 ;; require it
 (unless (require 'el-get nil 'noerror)
   (with-current-buffer

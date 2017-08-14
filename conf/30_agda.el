@@ -16,3 +16,15 @@
 ;; 呼び出しが評価されることになるが、それには agda が読み込まれて
 ;; 無いといけない？
 ;; 故に hook に追加しないと、効き目がない。
+
+;;;;;
+;; Chapter 7
+;; gratr
+
+;; gratr.el の説明に従った
+
+;; (setq load-path (cons (expand-file-name "~/gratr/") load-path))
+(add-to-list 'load-path
+             (expand-file-name "~/Work/univ/agda/gratr2/"))
+(add-to-list 'auto-mode-alist '("\\.gr$" . gratr-mode))
+(autoload 'gratr-mode "gratr" "Highlight mode for the gratr syntax." t)
