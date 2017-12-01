@@ -71,9 +71,9 @@
 (add-to-list 'sml/replacer-regexp-list '("^~/Work/" ":Work:"))
 (add-to-list 'sml/replacer-regexp-list '("^~/Work/Code/" ":Code:"))
 (add-to-list 'sml/replacer-regexp-list '("^~/Work/univ/" ":Univ:"))
-;; ED => Emacs
 (add-to-list 'sml/replacer-regexp-list '("^~/\\.emacs\\.d/" ":Emacs:"))
 (add-to-list 'sml/replacer-regexp-list '("^~/Dropbox/" ":DBox:"))
+(add-to-list 'sml/replacer-regexp-list '("^~/Downloads/" ":DL:"))
 
 
 ;;;; pathname のところの設定
