@@ -24,7 +24,7 @@
 (setq tex-compile-commands
       '(;; 一番上に置いておく
         ;; 不要な一時ファイルを消す。
-        (" latexmk %f && \\rm %r.{fls,log,blg}" t "%r.pdf")
+        (" latexmk %r.tex && \\rm %r.{fls,log,blg}" t "%r.pdf")
 
         ;; 強制的に再コンパイルしたい時に使うと良い。
         ;; touch だけでは意味がなくて、fdb_latexmk を消せば良い
