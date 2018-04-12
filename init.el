@@ -6,30 +6,37 @@
              '("melpa" . "http://melpa.org/packages/"))
 (package-initialize)
 
-;; el-get
-;; via: https://github.com/dimitri/el-get
-;; el-get の位置を指定
-(add-to-list 'load-path
-             (expand-file-name "~/.emacs.d/el-get/el-get"))
-;; require it
-(unless (require 'el-get nil 'noerror)
-  (with-current-buffer
-      (url-retrieve-synchronously
-       "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
-    (goto-char (point-max))
-    (eval-print-last-sexp)))
+(setq my-package-list
+      '(init-loader
+        exec-path-from-shell
+        shut-up recentf-ext
+        redo+ undo-tree point-undo undohist
+        helm helm-descbinds
+        magit
+        migemo
+        visual-regexp visual-regexp-steroids
+        company
+        ;; langs
+        ;; graphviz?
+        haskell markdown-mode tuareg python-mode
+        geiser                          ; => racket
+        ;; wc-mode
+        ;; hl-line+ col-highlight
+        ))
 
-(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
-;;(el-get 'sync)
+;; https://stackoverflow.com/questions/31079204/emacs-package-install-script-in-init-file
+; install the missing packages
+(dolist (package my-package-list)
+  (unless (package-installed-p package)
+    (package-install package)))
+
 
 ;; init-loader
-(el-get-bundle init-loader)
 (require 'init-loader)
 (init-loader-load "~/.emacs.d/conf")
 
-
 ;; This is the end of my setting part.
-;; Following config may be added by other programs.
+;; Following configs may be the configs added by other programs.
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (custom-set-variables

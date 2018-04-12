@@ -1,7 +1,7 @@
 ;; Search and Replace
 
 ;; migemo:
-(el-get-bundle migemo)
+
 ;; 日本語文字をローマ字で検索できるようにする。
 ;; cmigemo コマンド (install by brew) を用いる。
 ;; cmigemo がインストールして居ない時は通常の検索を使えるように
@@ -31,8 +31,6 @@
 ;; URLs
 ;; http://rubikitch.com/2015/04/20/visual-regexp-steroids/
 ;; https://github.com/benma/visual-regexp.el
-(el-get-bundle visual-regexp)
-(el-get-bundle visual-regexp-steroids)
 
 ;; vr/replace (一括変換)
 ;; vr/query-replace (対話？)

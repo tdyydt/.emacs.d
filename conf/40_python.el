@@ -1,5 +1,5 @@
 ;; python mode
-(el-get-bundle python-mode)
+;; another python mode, not default one
 
 ;; run-python (C-c C-p)
 ;; で起動するプログラムを "python" から変更

@@ -1,7 +1,7 @@
 ;; Company-mode
 ;; http://company-mode.github.io
 ;; https://www.emacswiki.org/emacs/CompanyMode
-(el-get-bundle company)
+
 ;; (add-hook 'after-init-hook 'global-company-mode)
 (global-company-mode t)
 

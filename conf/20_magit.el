@@ -1,5 +1,3 @@
-(el-get-bundle magit)
-
 ;; magit-status
 ;; only for macOS
 ;; cmd-g (git の g ということにしておく)

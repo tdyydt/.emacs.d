@@ -19,8 +19,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; tuning
 ;; avoid annoying messages
-;; using "shut-up.el" in order to shut up recentf messages
-(el-get-bundle shut-up)
+;; I'm using "shut-up.el" in order to shut up recentf messages
 (require 'shut-up)
 
 ;; 2015/12/11
@@ -50,7 +49,6 @@
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; This should be written after (require 'recentf)
-;; OR ".recentf" file will be initialized.
-(el-get-bundle recentf-ext)
+;; The following _must_ be written after (require 'recentf)
+;; If not, ".recentf" file will be erased.
 (require 'recentf-ext)

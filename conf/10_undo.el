@@ -1,23 +1,19 @@
 ;; redo+
-(el-get-bundle redo+)
 (when (require 'redo+ nil t)
   ;; "C-." = redo
   (global-set-key (kbd "C-.") 'redo))
 
 ;; undo-tree (p.138)
-(el-get-bundle undo-tree)
 (when (require 'undo-tree nil t)
   (global-undo-tree-mode))
 
 ;; point-undo (p.140)
-(el-get-bundle point-undo)
 (when (require 'point-undo nil t)
   (define-key global-map [f5] 'point-undo)
   (define-key global-map [f6] 'point-redo))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; undohist
-(el-get-bundle undohist)
 (when (require 'undohist nil t)
   (undohist-initialize))
 

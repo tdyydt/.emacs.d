@@ -1,7 +1,5 @@
 ;; helm
 ;;(el-get-bundle async)
-(el-get-bundle helm)
-(el-get-bundle helm-descbinds)
 
 (require 'helm-config)
 

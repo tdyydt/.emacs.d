@@ -1,5 +1,4 @@
 ;; markdown mode
-(el-get-bundle markdown-mode)
 (setq markdown-indent-on-enter nil)
 
 ;; markdown-open via MacDown.app

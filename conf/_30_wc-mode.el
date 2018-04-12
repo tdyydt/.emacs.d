@@ -1,4 +1,3 @@
-(el-get-bundle wc-mode)
 (require 'wc-mode)
 
 ;; latex を書く時に有効にする
