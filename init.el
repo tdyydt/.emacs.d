@@ -2,15 +2,18 @@
 
 ;; packege.el
 (require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/"))
+(setq package-archives
+      '(("gnu" . "https://elpa.gnu.org/packages/")
+        ("marmalade" . "https://marmalade-repo.org/packages/")
+        ("melpa" . "https://melpa.org/packages/")))
 (package-initialize)
 
 (setq my-package-list
       '(init-loader
         exec-path-from-shell
         shut-up recentf-ext
-        redo+ undo-tree point-undo undohist
+        ;; redo+ point-undo
+	undo-tree undohist
         helm helm-descbinds
         magit
         migemo
@@ -18,18 +21,19 @@
         company
         ;; langs
         ;; graphviz?
-        haskell markdown-mode tuareg python-mode
+        ;; haskell
+	markdown-mode tuareg python-mode
         geiser                          ; => racket
+        smart-mode-line
         ;; wc-mode
         ;; hl-line+ col-highlight
         ))
 
-;; https://stackoverflow.com/questions/31079204/emacs-package-install-script-in-init-file
+;; via: https://stackoverflow.com/questions/31079204/emacs-package-install-script-in-init-file
 ; install the missing packages
 (dolist (package my-package-list)
   (unless (package-installed-p package)
     (package-install package)))
-
 
 ;; init-loader
 (require 'init-loader)
@@ -37,7 +41,6 @@
 
 ;; This is the end of my setting part.
 ;; Following configs may be the configs added by other programs.
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

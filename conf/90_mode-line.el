@@ -53,8 +53,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; smart modeline
 ;; via: https://github.com/Malabarba/smart-mode-line#features
-(el-get-bundle smart-mode-line)
-;;(el-get-bundle smart-mode-line-powerline-theme)
 
 ;; setup
 (sml/setup)
