@@ -1,11 +1,15 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; packege.el
+;; Emacs 24
 (require 'package)
-(setq package-archives
-      '(("gnu" . "https://elpa.gnu.org/packages/")
-        ("marmalade" . "https://marmalade-repo.org/packages/")
-        ("melpa" . "https://melpa.org/packages/")))
+;; default?
+;; (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/"))
+;; t ==> add ELEMENT at the end
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives
+             '("marmalade" . "https://marmalade-repo.org/packages/") t)
 (package-initialize)
 
 (setq my-package-list
@@ -13,6 +17,7 @@
         exec-path-from-shell
         shut-up recentf-ext
         ;; redo+ point-undo
+        ;; ==> not in package
 	undo-tree undohist
         helm helm-descbinds
         magit
@@ -22,8 +27,8 @@
         ;; langs
         ;; graphviz?
         ;; haskell
-	markdown-mode tuareg python-mode
-        geiser                          ; => racket
+	markdown-mode yaml-mode
+        tuareg python-mode geiser       ; Geiser for racket
         smart-mode-line
         ;; wc-mode
         ;; hl-line+ col-highlight
