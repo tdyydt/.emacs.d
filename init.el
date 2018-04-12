@@ -10,6 +10,10 @@
              '("marmalade" . "https://marmalade-repo.org/packages/") t)
 (package-initialize)
 
+;; Update/Refresh packages (necessary)
+;; via: https://stackoverflow.com/questions/14836958/updating-packages-in-emacs
+(when (not package-archive-contents)
+  (package-refresh-contents))
 
 ;; Suggestion: require package
 ;; via: https://qiita.com/regashia/items/057b682dd29fbbdadd52

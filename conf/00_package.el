@@ -24,3 +24,5 @@
 ;; via: https://stackoverflow.com/questions/31079204/emacs-package-install-script-in-init-file
 (dolist (package my-package-list)
   (package-install-if-needed package))
+
+;; TODO: skip if error
