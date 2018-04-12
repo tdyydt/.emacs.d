@@ -1,7 +1,5 @@
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 ;; packege.el
-;; Emacs 24
+;; (>= emacs-major-version 24)
 (require 'package)
 ;; default?
 ;; (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/"))
@@ -12,35 +10,16 @@
              '("marmalade" . "https://marmalade-repo.org/packages/") t)
 (package-initialize)
 
-(setq my-package-list
-      '(init-loader
-        exec-path-from-shell
-        shut-up recentf-ext
-        ;; redo+ point-undo
-        ;; ==> not in package
-	undo-tree undohist
-        helm helm-descbinds
-        magit
-        migemo
-        visual-regexp visual-regexp-steroids
-        company
-        ;; langs
-        ;; graphviz?
-        ;; haskell
-	markdown-mode yaml-mode
-        tuareg python-mode geiser       ; Geiser for racket
-        smart-mode-line
-        ;; wc-mode
-        ;; hl-line+ col-highlight
-        ))
 
-;; via: https://stackoverflow.com/questions/31079204/emacs-package-install-script-in-init-file
-; install the missing packages
-(dolist (package my-package-list)
+;; Suggestion: require package
+;; via: https://qiita.com/regashia/items/057b682dd29fbbdadd52
+(defun package-install-if-needed (package)
+  "Install given PACKAGE, if it was not installed yet."
   (unless (package-installed-p package)
     (package-install package)))
 
 ;; init-loader
+(package-install-if-needed 'init-loader)
 (require 'init-loader)
 (init-loader-load "~/.emacs.d/conf")
 
