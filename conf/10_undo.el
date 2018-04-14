@@ -1,16 +1,29 @@
-;; redo+
-(when (require 'redo+ nil t)
-  ;; "C-." = redo
-  (global-set-key (kbd "C-.") 'redo))
+;; Undo & Redo
 
 ;; undo-tree (p.138)
+;; d = diff
 (when (require 'undo-tree nil t)
-  (global-undo-tree-mode))
+  (global-undo-tree-mode)
+  ;; redo
+  (global-set-key (kbd "C-.") 'undo-tree-redo))
+
+;; redo+ は使わず，undo-tree で redo する
+;; (redo+ は package.el で入らない)
+;; via: https://qiita.com/takc923/items/c3d64b55fc4f3a3b0838
+
+;; undo-tree は 'redo に割当てた key を
+;; 'undo-tree-redo に再割当てするらしく，
+;; やはり redo+ の意義は薄かった
+;; via: http://emacs.rubikitch.com/sd1509-safeguard-undo-redo/
 
 ;; point-undo (p.140)
 (when (require 'point-undo nil t)
   (define-key global-map [f5] 'point-undo)
   (define-key global-map [f6] 'point-redo))
+
+;; ==> install by hand & byte compile
+;; via: https://www.emacswiki.org/emacs/point-undo.el
+;; melpa にはない
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; undohist

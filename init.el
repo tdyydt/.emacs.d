@@ -22,6 +22,9 @@
   (unless (package-installed-p package)
     (package-install package)))
 
+;; init-loader だけ特別扱いして，最初にインストール
+;; 他は，00_package.el でインストール
+
 ;; init-loader
 (package-install-if-needed 'init-loader)
 (require 'init-loader)

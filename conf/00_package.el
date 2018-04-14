@@ -1,9 +1,6 @@
 (setq my-package-list
-      '(init-loader
-        exec-path-from-shell
+      '(exec-path-from-shell
         shut-up recentf-ext
-        ;; redo+ point-undo
-        ;; ==> not in package
 	undo-tree undohist
         helm helm-descbinds
         magit
@@ -19,6 +16,8 @@
         ;; wc-mode
         ;; hl-line+ col-highlight
         ))
+;; init-loader は例外的に，
+;; init.el でインストールする．
 
 ;; package-install-if-needed ==> Defined in init.el
 ;; via: https://stackoverflow.com/questions/31079204/emacs-package-install-script-in-init-file
