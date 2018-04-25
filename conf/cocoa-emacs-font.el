@@ -1,14 +1,8 @@
 ;; font
 ;; Mac
 
-;; COMMENT: [May 23, 2016]
-;; かなり状況が改善した。
-;; set-fontset-font で、日本語フォントのサイズと、
-;; ascii フォントのサイズを別々に設定している。
-;; 行儀が良いのかはわからないけれど、これが一番良い！
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; japanese font
+;; Japanese font
 
 ;; 明朝は少し違う。角ゴがデフォルトと思う。
 ;; 丸ゴもほとんど同じだが、良く見ると確かに丸い。
@@ -21,20 +15,29 @@
           ((= v 2) "Hiragino Mincho ProN")      ; 明朝
           ((= v 3) "Hiragino Sans")             ; 詳細不明
           ))
-(mapcar (lambda (charset)
-          (set-fontset-font
-           nil
-           charset
-           (font-spec :family (choose-japanese-font 0)
-                      :size 12)))
-        '(japanese-jisx0208
-          #x309A        ; 半濁点 ゚
-          #x3099        ; 濁点 ゙
-          ;;
-          ;; 'unicode
-          ;; にして ascii も含めて設定してから、下で ascii だけ上書きする
-          ;; という考え方もあり得る。
-          ))
+(set-fontset-font
+ nil
+ 'unicode
+ (font-spec :family (choose-japanese-font 0)
+                      :size 12))
+;; (mapcar (lambda (charset)
+;;           (set-fontset-font
+;;            nil
+;;            charset
+;;            (font-spec :family (choose-japanese-font 0)
+;;                       :size 12)))
+;;         '(japanese-jisx0208
+;;           #x309A        ; 半濁点 ゚
+;;           #x3099        ; 濁点 ゙
+;;           ))
+
+;; 2018/04/25
+;; japanese-jisx0208 の範囲を設定したりすると，
+;; 範囲から漏れるものが幾つかある気がするため，
+;; いったん 'unicode 全体を japanese-font にした後に，
+;; 下で ascii だけ上書きする
+;; ==> これで「ゔ」の表示がずれていない
+
 
 ;; TODO: [May 23, 2016]
 ;; set-fontset-font というのと、set-face-attribute
@@ -45,6 +48,7 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ascii font
+;; Overwrite the above font for ascii chars
 
 ;; (2). Menlo
 ;; デフォルト
