@@ -15,6 +15,7 @@
         smart-mode-line
         ;; wc-mode
         ;; hl-line+ col-highlight
+        web-mode
         ))
 ;; init-loader は例外的に，
 ;; init.el でインストールする．
