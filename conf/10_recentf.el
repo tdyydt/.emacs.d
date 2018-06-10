@@ -14,6 +14,7 @@
   (setq recentf-exclude
         (list (concat emacs-home "\.recentf")
               (concat emacs-home "backups/.*")
+              (expand-file-name "~/Work/intro-prog-2018/kadai.*/.*")
               ".*/\.git/COMMIT_EDITMSG")))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
