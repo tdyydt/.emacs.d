@@ -12,6 +12,7 @@
         ;; haskell
 	markdown-mode yaml-mode
         tuareg python-mode geiser       ; Geiser for racket
+        go-mode
         smart-mode-line
         ;; wc-mode
         ;; hl-line+ col-highlight
