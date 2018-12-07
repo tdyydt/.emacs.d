@@ -1,6 +1,16 @@
 ;; utility functions
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; compile
+;; via: https://emacs.stackexchange.com/questions/20954/compile-from-parent-directory-in-emacs
+(defun compile-project ()
+  (interactive)
+  (let* ((mk-dir (locate-dominating-file (buffer-file-name) "Makefile"))
+         (compile-command (concat "make -k -C " (shell-quote-argument mk-dir)))
+         (compilation-read-command nil))
+    (call-interactively 'compile)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; insert date
 
 ;; %Y: year
