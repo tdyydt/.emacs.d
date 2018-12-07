@@ -8,16 +8,12 @@
 ;(setq python-shell-interpreter "ipython3")
 
 
-;; emacs 標準の python mode とは別の
-;; python-mode.el を使ってみる
+;; python-mode.el (emacs 標準の python mode とは別)
+;; Emacs 標準は Python だが，これは Py
 ;; REF: https://www.emacswiki.org/emacs/ProgrammingWithPythonModeDotEl
 (autoload 'python-mode "python-mode" "Python Mode." t)
 (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
 (add-to-list 'interpreter-mode-alist '("python" . python-mode))
-
-;; Emacs 標準のものは Python と出るが
-;; こちらは Py
-;; Abbrev か何かのエラーが出る？
 
 
 (defun my-python-mode-hooks ()

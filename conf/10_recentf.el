@@ -18,14 +18,11 @@
               ".*/\.git/COMMIT_EDITMSG")))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; tuning
-;; avoid annoying messages
+;; Tuning:
+;; Avoid annoying messages
 ;; I'm using "shut-up.el" in order to shut up recentf messages
 (require 'shut-up)
 
-;; 2015/12/11
-;; 現状、*Messages* で煩いこともないし、ミニバッファに出ることもない。
-;; 多分正常に機能してくれてるとは思う。解決？？？
 ;; REF: https://github.com/takaxp/emacs.d/blob/master/init.el
 ;; REF: http://pastelwill.jp/wiki/doku.php?id=emacs:init.el
 ;; REF: http://qiita.com/itiut@github/items/d917eafd6ab255629346
@@ -51,5 +48,5 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; The following _must_ be written after (require 'recentf)
-;; If not, ".recentf" file will be erased.
+;; Otherwise, ".recentf" file will be erased !!
 (require 'recentf-ext)

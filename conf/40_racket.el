@@ -19,18 +19,17 @@
 
 ;; REPL は
 ;; geiser-repl
-;; というモード。コレの起動時に
+;; というモード。コレの起動時には
 ;; geiser-autodocsetq -mode
-;; が付いてしまう
+;; が付く
 
 ;; defcustom でサーチするといい
 ;; finally found @geiser-repl.el
 (setq geiser-repl-autodoc-p nil)
+
 ;; 通常の rkt 編集時モードも同様
 ;; autodoc-mode 有りだと 'Racket/A' となる
 (setq geiser-mode-autodoc-p nil)
 
-;; geiser-racket-init-file
-;; に設定されている文字列ファイルが、racket 起動時に実行される
-;; 初期値のままだが明示的に書いておく
+;; racket 起動時に実行するファイル (defaultのまま)
 (setq geiser-racket-init-file "~/.racket-geiser")

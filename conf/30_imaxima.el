@@ -22,5 +22,5 @@
 
 ;; preamble を設定できる
 ;; 数式フォントの変更
-;; concrete にすると、一回目が少し遅いのかも
+;; concrete にすると、一回目が少し遅いか？
 (setq imaxima-latex-preamble "\\usepackage{concrete}\n")

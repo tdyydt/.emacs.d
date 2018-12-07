@@ -11,8 +11,8 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; ビープ音消去
-;; ビープ音を visible-bell に変更
-;; visible-bell 時に呼び出される関数は変更することができるので，
+;; ビープ音を visible-bell に変更した上で
+;; visible-bell 時に呼び出される関数に
 ;; その関数に何もしない関数(ignore)を割り当てる
 (setq visible-bell t)
 (setq ring-bell-function 'ignore)
@@ -43,7 +43,7 @@
 (setq vc-follow-symlinks t)
 
 ;; 他から変更されたファイルがあったら、再読込する
-;; Git での悩みもこれで解決 (Apr 29)
+;; Git 使用時に便利
 (global-auto-revert-mode t)
 
 ;; disable shift selection
@@ -56,7 +56,6 @@
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; やめる 11/02
 ;; 行番号表示
 ;; (global-linum-mode)
 ;; (setq linum-format "%5d")
@@ -74,12 +73,11 @@
 
 ;; 保存時に，行末の余計なスペースを削除
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
-;; shebang なら？実行権限付ける
+;; #! ならば，実行権限付ける
 (add-hook 'after-save-hook
           'executable-make-buffer-file-executable-if-script-p)
 
-;; add newline at end of file (if it were not there)
-;; when saving the file
+;; add newline at EOF when saving a file
 ;; via: http://www.gnu.org/software/emacs/manual/html_node/emacs/Customize-Save.html
 (setq require-final-newline t)
 (setq mode-require-final-newline t)
@@ -94,38 +92,25 @@
 ;; ファイル名の一括置換に便利
 (define-key dired-mode-map "r" 'wdired-change-to-wdired-mode)
 
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; cua-mode (emacs同梱)
-;; 矩形選択が便利 "C-RET" ("C-SPC" リージョン選択)
+;; cua-mode
+;; 矩形選択 "C-RET"
 ;; (cua-mode t)
 ;; (setq cua-enable-cua-keys nil)
 
-;; uniquify (emacs同梱)
+;; uniquify
 ;; バッファ名が重複した時のバッファ名の区別の方法を変える
-;; default だと数字が付く
+;; default: 数字が付く
 (require 'uniquify)
 (setq uniquify-buffer-name-style
       'post-forward-angle-brackets)
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; major mode
-;; auto-mode-alist
-;; auto mode settings
+;; Major mode
 
-;; via: http://ergoemacs.org/emacs/emacs_auto-activate_a_major-mode.html
-;; 特定のファイルを、特定の major mode で開く
-;; Emacs Regexp: http://ergoemacs.org/emacs/emacs_regex.html
-;; via: http://qiita.com/aKenjiKato/items/b2745964aa11b39dfe38
-;; (add-to-list 'auto-mode-alist '("[Rr]eadme" . markdown-mode))
-
-;; Small-C
-(add-to-list 'auto-mode-alist '("\\.sc\\'" . c-mode))
 ;; ott
 (add-to-list 'auto-mode-alist '("\\.otex\\'" . LaTeX-mode))
 
-;; 行頭に
+;; NOTE: example of file variable
 ;; -*- mode: org-*-
-;; と書いておけば、org-mode で開くという
-;; file variable というものもあるらしい

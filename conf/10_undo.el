@@ -11,11 +11,6 @@
 ;; (redo+ は package.el で入らない)
 ;; via: https://qiita.com/takc923/items/c3d64b55fc4f3a3b0838
 
-;; undo-tree は 'redo に割当てた key を
-;; 'undo-tree-redo に再割当てするらしく，
-;; やはり redo+ の意義は薄かった
-;; via: http://emacs.rubikitch.com/sd1509-safeguard-undo-redo/
-
 ;; point-undo (p.140)
 (when (require 'point-undo nil t)
   (define-key global-map [f5] 'point-undo)
@@ -34,7 +29,8 @@
 ;; files for editing commit message (git)
 ;; (add-to-list 'undohist-ignored-files ".+COMMIT_EDITMSG.*")
 
-;; advice undohist-recover
+;; Tuning:
+;; Advice undohist-recover
 ;; not to ask wheter you recover the file
 ;; REF: http://d.hatena.ne.jp/odz/20060911/1157995745
 ;; REF: http://d.hatena.ne.jp/higepon/20060912/1158057702
@@ -58,7 +54,7 @@
   ad-do-it
   (ad-deactivate-regexp "yes-or-no-p--force-no"))
 
+;; アドバイスを activate する方法の違い
 ;; ad-active: アドバイスされる関数
 ;; ad-active-regexp: アドバイスの名前
-;; を指定して、アドバイスを activate するという違い
 (ad-activate-regexp "undohist-recover--avoid-dialogue")

@@ -1,4 +1,4 @@
 ;; magit-status
-;; only for macOS
-;; cmd-g (git の g ということにしておく)
+
+;; cmd-g (g for Git)
 (global-set-key (kbd "s-g") 'magit-status)

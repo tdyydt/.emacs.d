@@ -3,13 +3,5 @@
 
 ;; markdown-open via MacDown.app
 ;; (setq markdown-open-command "open -a MacDown")
-;; open だけで行ける
-;; (MacDown が関連付けられていれば)
+;; MacDown が関連付けられていれば，open だけで可能
 (setq markdown-open-command "open")
-
-;; あまり融通が効かないので、使えない
-;; advice とか
-;;(setq markdown-command-needs-filename nil)
-;;(setq markdown-command
-
-;; pandoc README.md -o README.html && open README.html

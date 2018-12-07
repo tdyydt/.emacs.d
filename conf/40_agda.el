@@ -17,23 +17,6 @@
 ;; 無いといけない？
 ;; 故に hook に追加しないと、効き目がない。
 
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; set agda include path
-;; agda コマンドの -i オプションに相当？
-;; agda2-include-dirs 変数は、もう使われていない。
-;; (custom-set-variables
-;;  '(agda2-include-dirs
-
-;; ソースコードに書かれた代替案2 を採用する
-;; (custom-set-variables
-;;  '(agda2-program-args
-;;    `(,(concat "-i " (expand-file-name "~/Work/univ/agda/1.3"))
-;;      ,(concat "-i " (expand-file-name "~/Work/univ/agda/gratr2/agda"))
-;;      )))
-
-;; 無理だった・諦める
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Chapter 7
 ;; gratr

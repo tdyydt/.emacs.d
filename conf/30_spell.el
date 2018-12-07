@@ -7,14 +7,16 @@
 
 ;; ~/.aspell.conf に
 ;; lang en_US
-;; と書いて日本語の辞書を探さないように。
+;; と書いて日本語の辞書を探さないように
 
-;; use 'aspell', instead of ispell (default)
+
+;; Use aspell (default: ispell)
 (setq-default ispell-program-name "aspell")
 
 ;; 日本語混じりの文でも、日本語を無視して英文のみスペルチェックさせる。
 (eval-after-load "ispell"
  '(add-to-list 'ispell-skip-region-alist '("[^\000-\377]+")))
+
 
 ;; 便利な機能:
 ;; M-x ispell
@@ -26,6 +28,4 @@
 ;; M-x ispell-complete-word
 ;; という補完機能もあるらしい。M-tab に割り当て？？
 
-;; TODO: add to tex mode hook
-
-;; TODO: Yuya, Tsuda くらい辞書に追加しておく
+;; TODO: 固有名詞を辞書に追加

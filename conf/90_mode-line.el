@@ -72,7 +72,6 @@
 (add-to-list 'sml/replacer-regexp-list '("^~/\\.emacs\\.d/" ":Emacs:"))
 (add-to-list 'sml/replacer-regexp-list '("^~/Dropbox/" ":DBox:"))
 (add-to-list 'sml/replacer-regexp-list '("^~/Downloads/" ":DL:"))
-(add-to-list 'sml/replacer-regexp-list '("^~/Work/intro-prog-2018/" ":ip18:"))
 
 ;;;; pathname のところの設定
 (setq sml/shorten-directory t)

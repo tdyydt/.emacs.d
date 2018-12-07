@@ -1,5 +1,4 @@
 ;; helm
-;;(el-get-bundle async)
 
 (require 'helm-config)
 
@@ -21,19 +20,18 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; issue:
-;; 縦に画面分割しているときに、
-;; Helm buffers の popup の表示が嫌だ。変えたい
-;; Helm の update をしたせいか、変わった。
+;; 縦に画面分割しているときの、
+;; Helm buffers の popup の位置の挙動が変わった．
 ;; とりあえず、応急処置
 ;; REF: http://emacs.stackexchange.com/questions/19303/split-window-buffers
 (setq helm-split-window-in-side-p t)
 
 
-;; Helm for files をした時に現れるソースをカスタマイズ
-;; locate 要らないので。
-;; 順番もこのリストに沿うみたいなので、
-;; helm-recentf の代わりに使うのだという意味で、
-;; recentf を最上位にする (buffer list が先頭のほうが自然ではあるが)
+;; Helm for files の時に現れるソースをカスタマイズ
+;; locate を消す．
+;; 順番もこのリストに沿うらしい．
+;; recentf を最上位にする
+;; (しかし，buffer list が先頭のほうが自然)
 (setq helm-for-files-preferred-list
       '(helm-source-recentf
         helm-source-buffers-list

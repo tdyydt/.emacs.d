@@ -22,12 +22,13 @@
 ;; replace dabbrev with company-dabbrev
 ;; This completes words in the buffers.
 (define-key global-map (kbd "M-/") 'company-dabbrev)
+
 ;; case sensitive
-;; デフォルトでは勝手に lowercase に直して補完しやがる。
+;; デフォルトでは勝手に lowercase に直して補完される？
 ;; via: http://tam5917.hatenablog.com/entry/2016/04/25/204532
 (setq company-dabbrev-downcase nil)
 
-;; 他の関数もある？
+;; 他の関数もある？:
 ;; company-complete-common-or-cycle
 ;; company-indent-or-complete-common
 
@@ -46,5 +47,4 @@
 (define-key company-active-map (kbd "RET") nil)
 (define-key company-active-map (kbd "<return>") nil)
 
-;; TODO: うまく効いていない
-;; RET で補完完了してしまう
+;; TODO: うまく効いていない？

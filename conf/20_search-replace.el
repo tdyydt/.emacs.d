@@ -4,7 +4,7 @@
 
 ;; 日本語文字をローマ字で検索できるようにする。
 ;; cmigemo コマンド (install by brew) を用いる。
-;; cmigemo がインストールして居ない時は通常の検索を使えるように
+;; cmigemo をインストールしていない時は通常の検索を使う
 ;; via: http://qiita.com/catatsuy/items/c5fa34ead92d496b8a51
 (when (and (executable-find "cmigemo")
            (require 'migemo nil t))
@@ -26,25 +26,21 @@
 ;; migemo は正規表現なのが少し使いづらい
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; improve replacement by regular expressions
+;; visual-regexp
+;; 正規表現を使いやすくする
 
 ;; URLs
 ;; http://rubikitch.com/2015/04/20/visual-regexp-steroids/
 ;; https://github.com/benma/visual-regexp.el
 
 ;; vr/replace (一括変換)
-;; vr/query-replace (対話？)
-;; などの 'vr/' という関数がそれ
-;; 'C-c a' でマッチした部分をハイライト。とても便利。
+;; vr/query-replace (対話)
+;; 'C-c a' でマッチした部分をハイライト
 
-;; by default:
-;; M-% (query-replace)
-;; C-M-% (query-replace-regexp; 正規表現版)
-;; => 使いにくいので
-;; M-% (vr 版の正規表現置換)
-(when (require 'visual-regexp nil t)
-  ;(global-set-key (kbd "M-%") 'query-replace)
-  (global-set-key (kbd "C-M-%") 'vr/query-replace))
+;; keybind
+;; (when (require 'visual-regexp nil t)
+;;   ;(global-set-key (kbd "M-%") 'query-replace)
+;;   (global-set-key (kbd "C-M-%") 'vr/query-replace))
 
 (when (require 'visual-regexp-steroids nil t)
   ;; python の正規表現を使う (default)
@@ -54,8 +50,3 @@
   (global-set-key (kbd "C-M-r") 'vr/isearch-backward)
   (global-set-key (kbd "C-M-s") 'vr/isearch-forward)
   )
-
-;; 何度も繰り返し行うときは関数にして、登録してからやるといい
-;; TODO: vr/query-replace が case-insensitive になってる？？
-;; => isearch-toggle-case-fold が関係ありそう
-;; Type \\[isearch-toggle-case-fold] to toggle search case-sensitivity.
