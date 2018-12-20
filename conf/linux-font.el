@@ -1,14 +1,12 @@
 ;; font for Ubuntu
-
-;; 日本語のサイズの調整が必要
-;; TODO: サイズの調整
+;; font size configured for 4K display
 
 ;; For all characters:
 (set-fontset-font
  nil
  'unicode
  (font-spec :family "TakaoPGothic"
-            :size 12))
+            :size 20))
 
 
 ;; Overwrite above for ASCII chars:
@@ -17,4 +15,4 @@
  nil
  'ascii
  (font-spec :family "Ubuntu Mono"
-            :size 12))
+            :size 22))
