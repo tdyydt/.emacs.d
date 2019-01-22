@@ -57,20 +57,20 @@
 ;; setup
 (sml/setup)
 
-;; because Emacs recommend this to me...
+;; because Emacs recommend this to me... (?)
 (setq sml/theme 'light)
 
 ;; avoid messages
 ;; (setq sml/no-confirm-load-theme t)
 
 ;;;; Pathname abbreviations
-;; もとから定義されていたのを上書きする場合は t を付けてはいけない。
+;; もとから定義されていたのを上書きする場合は t を付けてはいけない (??)
 ;; (add-to-list 'sml/replacer-regexp-list '("^~/Git-Projects/" ":Git:") t)
 (add-to-list 'sml/replacer-regexp-list '("^~/Work/" ":Work:"))
 (add-to-list 'sml/replacer-regexp-list '("^~/Work/Code/" ":Code:"))
-(add-to-list 'sml/replacer-regexp-list '("^~/Work/univ/" ":Univ:"))
+(add-to-list 'sml/replacer-regexp-list '("^~/Lab/" ":Lab:"))
 (add-to-list 'sml/replacer-regexp-list '("^~/\\.emacs\\.d/" ":Emacs:"))
-(add-to-list 'sml/replacer-regexp-list '("^~/Dropbox/" ":DBox:"))
+(add-to-list 'sml/replacer-regexp-list '("^~/Dropbox/" ":DrBox:"))
 (add-to-list 'sml/replacer-regexp-list '("^~/Downloads/" ":DL:"))
 
 ;;;; pathname のところの設定
