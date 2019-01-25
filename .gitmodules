@@ -1,0 +1,3 @@
+[submodule "elisp/copl-mode"]
+	path = elisp/copl-mode
+	url = git@github.com:chiro/copl-mode.git
