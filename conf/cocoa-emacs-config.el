@@ -10,8 +10,7 @@
 (global-set-key (kbd "M-¥") (kbd "M-\\"))
 (global-set-key (kbd "C-M-¥") (kbd "C-M-\\"))
 
-;; ignore wheel left/right
-;; mapcar を使ってみる
+;; Ignore wheel left/right
 (mapcar
  (lambda (key) (global-set-key (kbd key) 'ignore))
  '("<wheel-right>" "<double-wheel-right>" "<triple-wheel-right>"
