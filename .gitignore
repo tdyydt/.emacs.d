@@ -1,14 +1,8 @@
-# bak
-auto-save-list/
-backups/
-undohist/
+*.elc
 
-ac-comphist.dat
-kkcrc
-bookmarks
-abbrev_defs
-.emacs.desktop
-.recentf*
+auto-save-list
+backups
+undohist
 
 eshell
 games
@@ -16,6 +10,13 @@ tutorial
 
 el-get
 elpa
-elisp
+# elisp
 lisp
 themes
+
+ac-comphist.dat
+kkcrc
+bookmarks
+abbrev_defs
+.emacs.desktop
+.recentf*
