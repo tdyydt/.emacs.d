@@ -11,6 +11,31 @@
     (call-interactively 'compile)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Move from *.tex to *.otex
+;; Useful when SyncTex with Ott
+(defun move-to-otex ()
+  "Go to the same line number in the corresponding otex file."
+  (interactive)
+  (let ((line (line-number-at-pos))
+        (otex-file (concat (file-name-base) ".otex")))
+    ;; If it's tex file, and otex-file exists, ...
+    (if (and (string= ".tex" (substring (buffer-file-name) -4))
+             (file-exists-p otex-file))
+        (progn
+          ;; kill buffer (tex)
+          ;; (kill-buffer)
+          (find-file otex-file)
+          (goto-line line))
+      (message "Either it's not a tex file; or there's no otex file.")
+      )))
+
+;; Memo:
+;; (pos (point))
+;; (goto-char pos)
+;; (buffer-file-name)
+;; (buffer-name)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; insert date
 
 ;; %Y: year
@@ -20,7 +45,7 @@
 ;; %d: day of month
 
 ;; insert 関数について
-;; REF: https://www.gnu.org/software/emacs/manual/html_node/elisp/Insertion.html
+;; via: https://www.gnu.org/software/emacs/manual/html_node/elisp/Insertion.html
 (defun insert-format-date ()
   (interactive)
   (insert (format-time-string "%b %d, %Y")))
@@ -61,6 +86,8 @@
           ((= x 1) (previous-line))
           ((= x 2) (next-line))
           ((= x 3) (forward-char)))))
+
+;; Don't do this...
 ;; (mapcar (lambda (key)
 ;;           (define-key global-map key 'random-walk))
 ;;         '("\C-b" "\C-n" "\C-p" "\C-f"))
