@@ -2,6 +2,7 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; compile
+;; (Go find Makefile in parent directories)
 ;; via: https://emacs.stackexchange.com/questions/20954/compile-from-parent-directory-in-emacs
 (defun compile-project ()
   (interactive)
@@ -17,14 +18,14 @@
   "Go to the same line number in the corresponding otex file."
   (interactive)
   (let ((line (line-number-at-pos))
-        (otex-file (concat (file-name-base) ".otex")))
+        (otex-file (concat default-directory
+                           (file-name-base) ".otex")))
     ;; If it's tex file, and otex-file exists, ...
     (if (and (string= ".tex" (substring (buffer-file-name) -4))
              (file-exists-p otex-file))
         (progn
-          ;; kill buffer (tex)
-          ;; (kill-buffer)
-          (find-file otex-file)
+          (kill-buffer) ;; kill tex buffer
+          (find-file otex-file) ;; full path
           (goto-line line))
       (message "Either it's not a tex file; or there's no otex file.")
       )))
