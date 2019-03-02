@@ -1,13 +1,20 @@
 ;; font
 ;; Mac
+;; いったん unicode 全体を japanese-font にした後に ascii だけ上書き
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Japanese font
 
-;; 明朝は少し違う。角ゴがデフォルトと思う。
-;; 丸ゴもほとんど同じだが、良く見ると確かに丸い。
-;; Sans は角ゴと変わらんというか、謎。
-;; via: http://d.hatena.ne.jp/tomoya/20100828/1282948135
+;; (mapcar (lambda (charset)
+;;           (set-fontset-font
+;;            nil
+;;            charset
+;;            (font-spec :family (choose-japanese-font 0)
+;;                       :size 12)))
+;;         '(japanese-jisx0208
+;;           #x309A        ; 半濁点 ゚
+;;           #x3099        ; 濁点 ゙
+;;           ))
 
 (defun choose-japanese-font (v)
     (cond ((= v 0) "Hiragino Kaku Gothic ProN") ; 角ゴ
@@ -20,30 +27,14 @@
  'unicode
  (font-spec :family (choose-japanese-font 0)
                       :size 12))
-;; (mapcar (lambda (charset)
-;;           (set-fontset-font
-;;            nil
-;;            charset
-;;            (font-spec :family (choose-japanese-font 0)
-;;                       :size 12)))
-;;         '(japanese-jisx0208
-;;           #x309A        ; 半濁点 ゚
-;;           #x3099        ; 濁点 ゙
-;;           ))
 
-;; 2018/04/25
-;; japanese-jisx0208 の範囲を設定したりすると，
-;; 範囲から漏れるものが幾つかある気がするため，
-;; いったん 'unicode 全体を japanese-font にした後に，
-;; 下で ascii だけ上書きする
-;; ==> これで「ゔ」の表示がずれていない
+;; 明朝は△。角ゴがデフォルト
+;; 丸ゴもほとんど同じだが、よく見ると丸い。
+;; Sans は角ゴに近い？
+;; via: http://d.hatena.ne.jp/tomoya/20100828/1282948135
 
-
-;; TODO: [May 23, 2016]
-;; set-fontset-font というのと、set-face-attribute
-;; というのがあって、この違いが謎。set-fontset-font だけでも行けそうで、
-;; こちらのほうが直感的に分かりやすいので、こうする。
-;; いつか
+;; TODO:
+;; set-fontset-font と set-face-attribute の違い？
 ;; via: http://lioon.net/emacs-change-font-size-quickly
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -51,33 +42,21 @@
 ;; Overwrite the above font for ascii chars
 
 ;; (2). Menlo
-;; デフォルト
-;; 結構慣れてきている感じがある。
-;; l の感じが多分好きじゃない。
+;; デフォルト (l が△)
 ;; (1). Monaco
 ;; mac-patch のときのデフォルト
-;; カワイイ系で、割とデカい。
-;; iTerm 等で使用中。Emacs で使うには少し煩いのかもしれない
+;; 大きめ
 ;; (0). Inconsolata
-;; 人気のフリーフォント
-;; Consolas に似せているとか。数字の感じがちょっと違和感？
-;; l の感じは好き！
+;; フリーだが要インストール
+;; Consolas に似せているらしい。
+;; 数字が△．l が良い
 
-;; [May 25, 2016] Monaco も少し使ってみるかあ。Inconsolata やっぱり
-;; 数字だけフォントを変えるという荒業もあろうが、1 と l の区別が曖昧に
-;; なったりしかねない。
-
-;; フォントを変えやすく [May 23, 2016]
-;; サイズは割と相対的なもののようなので、ちょうど良いサイズとの
-;; コンスセルを作っておく。
-
-;; 実験の結果、
 ;; Monaco 11pt, Inconsolata 14pt
-;; がほぼ同じ大きさ！
-;; Menlo 12pt とは少しずれるが、これくらいがちょうど！
+;; がほぼ同じ大きさ
+;; Menlo 12pt も同じくらい
 
 (defun choose-ascii-font (v)
-  (cond ((= v 0) '("Inconsolata" . 14)) ; prefered!!
+  (cond ((= v 0) '("Inconsolata" . 14)) ; preferred!!
         ((= v 1) '("Monaco" . 11))
         ((= v 2) '("Menlo" . 12))       ; default
         ))

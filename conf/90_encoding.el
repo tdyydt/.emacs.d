@@ -4,8 +4,7 @@
 ;; 日本語 & 文字コード (p.85)
 ;; 無くてもいけるものもあるが一応
 
-;; Japanese にすると例えば tutorial (f1 t) が日本語になって
-;; 嫌だ。
+;; Japanese にすると例えば tutorial (f1 t) が日本語になるのが嫌
 ;; (set-language-environment "Japanese")
 (set-language-environment "English")
 
@@ -35,5 +34,4 @@
 (require 'ucs-normalize)
 
 ;; TODO:
-;; 似た名前の normalize 関数が二つあってどちらかわからなくなるので
-;; alias を。
+;; 似た名前の normalize 関数が二つあってどちらかわかりにくい

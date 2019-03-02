@@ -9,12 +9,12 @@
 
 ;; set up recentf exclusion
 ;; .recentf, backup files, files for editing commit message
-;; REF: https://www.gnu.org/software/emacs/manual/html_node/elisp/File-Name-Expansion.html
+;; via: https://www.gnu.org/software/emacs/manual/html_node/elisp/File-Name-Expansion.html
 (let ((emacs-home (expand-file-name "~/\.emacs\.d/")))
   (setq recentf-exclude
         (list (concat emacs-home "\.recentf")
               (concat emacs-home "backups/.*")
-              (expand-file-name "~/Work/intro-prog-2018/kadai.*/.*")
+;;              (expand-file-name "~/Work/intro-prog-2018/kadai.*/.*")
               ".*/\.git/COMMIT_EDITMSG")))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

@@ -4,7 +4,7 @@
 ;; via: https://github.com/ProofGeneral/PG
 (load "~/.emacs.d/lisp/PG/generic/proof-site")
 
-;; TODO: homebrewに変更？
+;; TODO: homebrew に変更する
 
 ;; Needed:
 (setq coq-prog-name "~/.opam/system/bin/coqtop")
