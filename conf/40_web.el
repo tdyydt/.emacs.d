@@ -18,4 +18,4 @@
   (setq web-mode-code-indent-offset 2)  ; e.g. js
   (setq web-mode-enable-auto-indentation nil)
 )
-(add-hook 'web-mode-hook  'my-web-mode-hook)
+(add-hook 'web-mode-hook 'my-web-mode-hook)
