@@ -8,17 +8,17 @@
         migemo
         visual-regexp visual-regexp-steroids
         company
-        ;;;; langs
-        ;; graphviz?
-        ;; haskell
+        smart-mode-line
+        ;; wc-mode
+        ;; hl-line+ col-highlight
+        ;;;; language major modes:
+        ;; graphviz haskell
 	markdown-mode yaml-mode
         tuareg python-mode geiser       ; Geiser for racket
         go-mode
         rust-mode
-        smart-mode-line
-        ;; wc-mode
-        ;; hl-line+ col-highlight
         web-mode
+        dockerfile-mode
         ))
 
 ;; package-install-if-needed ==> Defined in init.el
