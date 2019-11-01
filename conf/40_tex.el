@@ -30,7 +30,7 @@
         (" \\rm %r.fdb_latexmk" "%f" nil)
 
         (" platex %f" "%f" "%r.dvi")
-        (" open -a Skim.app %r.pdf" "%r.pdf" nil)
+        (" open -a Skim.app %r.pdf" "%r.pdf" nil)  ;; only for mac
         ))
 
 ;; Each element of tex-compile-commands

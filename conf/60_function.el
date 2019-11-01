@@ -11,6 +11,13 @@
          (compilation-read-command nil))
     (call-interactively 'compile)))
 
+(defun compile-paper ()
+  (interactive)
+  (let* ((mk-dir "~/Lab/effgrad/popl")
+         (compile-command (concat "make -k -C " (shell-quote-argument mk-dir)))
+         (compilation-read-command nil))
+    (call-interactively 'compile)))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Move from *.tex to *.otex
 ;; Useful when SyncTex with Ott

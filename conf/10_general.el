@@ -109,8 +109,10 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Major mode
 
-;; ott
+;; ott-tex
 (add-to-list 'auto-mode-alist '("\\.otex\\'" . LaTeX-mode))
+;; racket
+(add-to-list 'auto-mode-alist '("\\.grift\\'" . scheme-mode))
 
 ;; NOTE: example of file variable
 ;; -*- mode: org-*-

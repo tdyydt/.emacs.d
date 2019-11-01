@@ -72,6 +72,9 @@
 (add-to-list 'sml/replacer-regexp-list '("^~/\\.emacs\\.d/" ":Emacs:"))
 (add-to-list 'sml/replacer-regexp-list '("^~/Dropbox/" ":DrBox:"))
 (add-to-list 'sml/replacer-regexp-list '("^~/Downloads/" ":DL:"))
+;; (add-to-list 'sml/replacer-regexp-list
+;;              '("^~/Lab/kuis-isle3sw/.*/\\(.*\\)-isle3sw-2019-\\([^/]*\\)/"
+;;                "[\\1:\\2]"))
 
 ;;;; pathname のところの設定
 (setq sml/shorten-directory t)
