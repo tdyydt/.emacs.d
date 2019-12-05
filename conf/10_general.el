@@ -72,7 +72,7 @@
 (setq-default comment-start "# ")
 
 ;; 保存時に，行末の余計なスペースを削除
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+;; (add-hook 'before-save-hook 'delete-trailing-whitespace)
 ;; #! ならば，実行権限付ける
 (add-hook 'after-save-hook
           'executable-make-buffer-file-executable-if-script-p)
